@@ -1,0 +1,5 @@
+[{
+    "combination":["top-item-img", "bottom-item-img", "shoes-img"],
+    "id":"here the id of the user who liked the pic should be stored"
+}
+]
