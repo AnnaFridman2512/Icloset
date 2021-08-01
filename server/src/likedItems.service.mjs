@@ -1,6 +1,6 @@
 import loadJson from 'load-json-file';
 
-let liked = loadJson.sync('./data/liked.json'); //liked.json is going to be an array of liked item objects
+let liked = loadJson.sync('./data/likedItems.json'); //liked.json is going to be an array of liked item objects
 
 //export function getLiked() {
 //    return combination;

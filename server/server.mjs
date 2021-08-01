@@ -4,14 +4,14 @@ import express from 'express';
                               
 import {itemsRouter} from './src/items.routes.mjs';
 import {usersRouter} from './src/users.routes.mjs';
-import {likedRouter} from './src/liked.routes.mjs';
+import {likedRouter} from './src/likedItems.routes.mjs';
 
 const app = express();;
 
 app.use(express.json());//Used to parse JSON bodies
 app.use('/items', itemsRouter);
 app.use('/users', usersRouter);
-app.use('/liked', likedRouter);
+app.use('/likedItems', likedRouter);
 app.use(express.static('../react-app/build'));
 
 //CRUD - create read apdate delete

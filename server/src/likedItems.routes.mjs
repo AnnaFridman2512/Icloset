@@ -1,8 +1,8 @@
 import express from 'express';
 
-import { deleteCombination } from './liked.service.mjs';
-import { addLiked } from './liked.service.mjs';
-import {getLIked} from './liked.service.mjs';
+import { deleteCombination } from './likedItems.service.mjs';
+import { addLiked } from './likedItems.service.mjs';
+import {getLIked} from './likedItems.service.mjs';
 
 
 
