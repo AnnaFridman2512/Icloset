@@ -6,16 +6,16 @@ import {getLIked} from './likedItems.service.mjs';
 
 
 
-export const likedRouter = express.Router();
+export const likedItemsRouter = express.Router();
 
 
 //Create post 
-likedRouter.post("/", (req, res) => {
+likedItemsRouter.post("/", (req, res) => {
     res.send(addLiked(req.body));
 });
 
 //Get liked combinations by user id
-likedRouter.get("/:id", (req, res) => {
+likedItemsRouter.get("/:id", (req, res) => {
      res.send(getLIked(req.params.id));
 });
 
@@ -23,6 +23,6 @@ likedRouter.get("/:id", (req, res) => {
 
 
 //Delete combination
-likedRouter.delete("/", (req, res) => {
+likedItemsRouter.delete("/", (req, res) => {
     res.send(deleteCombination(req.params.id));
 });
