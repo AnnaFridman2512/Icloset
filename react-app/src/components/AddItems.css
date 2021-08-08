@@ -1,0 +1,7 @@
+.add-items {
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}

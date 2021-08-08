@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-
+import cors from 'cors';
                               
 import {itemsRouter} from './src/items.routes.mjs';
 import {usersRouter} from './src/users.routes.mjs';
@@ -10,6 +10,7 @@ const app = express();
 
 
 app.use(express.json());//Used to parse JSON bodies
+app.use(cors());
 app.use('/items', itemsRouter);
 app.use('/users', usersRouter);
 app.use('/likedItemsRouter', likedItemsRouter);
