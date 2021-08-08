@@ -6,6 +6,8 @@ export default function AddItems(){
 
     const fileChangeHandler = (e) => {
         setFileData(e.target.files[0]);//The target property of the Event interface is a reference to the object onto which the event was dispatched.
+                                      //.files[0] - Accessing the first selected file 
+
       };
     
     const onSubmitHandler = (e) => {
