@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-import express from 'express'                        
-import {itemsRouter} from './src/items.routes.mjs';
-import {usersRouter} from './src/users.routes.mjs';
-import {likesRouter} from './src/likes.routes.mjs';
 
-const app = express();
-=======
 import express from 'express';
 import multer from 'multer';
 import cors from 'cors';
@@ -16,18 +9,13 @@ import {likedItemsRouter} from './src/likedItems.routes.mjs';
 //import {addItemsRouter} from './src/addItems.routes.mjs';
 const app = express();
 
->>>>>>> 3e13ff15c60aa3353079558ff659170f70d6d148
 
 app.use(express.json());//Used to parse JSON bodies
 app.use(cors());
 app.use('/items', itemsRouter);
 app.use('/users', usersRouter);
-<<<<<<< HEAD
-app.use('/likes', likesRouter);
-=======
 app.use('/likedItemsRouter', likedItemsRouter);
 //app.use('/addItems', addItemsRouter);
->>>>>>> 3e13ff15c60aa3353079558ff659170f70d6d148
 app.use(express.static('../react-app/build'));
 
 //CRUD - create read apdate delete
