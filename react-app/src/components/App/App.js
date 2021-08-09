@@ -7,7 +7,7 @@ import {
 import React from 'react';
 import HomePage from '../Home/HomePage';
 import Nav from '../Navbar/Nav.js'
-import Item from '../Add-Item/Item.js';
+import Item from '../Item/Item.js';
 import Likes from '../Likes/Likes.js';
 import Login from '../Login/Login.js';
 import Footer from '../Home/Footer';
