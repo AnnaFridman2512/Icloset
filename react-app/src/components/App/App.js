@@ -1,23 +1,35 @@
 import './App.css';
+import { 
+  BrowserRouter as Router,
+  Switch,
+  Route,} from 'react-router-dom'
 
 import React from 'react';
-import Nav from '../Nav';
-import Main from '../Main';
-import AddItems from '../AddItems';
-import Search from '../Search';
-import LikedItems from '../LikedItems';
-import Login from '../Login';
+import HomePage from '../Home/HomePage';
+import Nav from '../Navbar/Nav.js'
+import Item from '../Item/Item.js';
+import Likes from '../Likes/Likes.js';
+import Login from '../Login/Login.js';
+import Footer from '../Home/Footer';
+
 
 function App() {
   
     return(
       <>
-      <Nav />
-      <Main />
-      <AddItems />
-      <Search />
-      <LikedItems />
-      <Login />
+      <Router>
+          <Nav />
+
+          <Switch>
+            <Route path='/' exact component={HomePage} />
+            <Route path='/items' exact component={Item} />
+            <Route path='/likes' exact  component={Likes}/>
+            <Route path='/users' exact component={Login}/>
+          </Switch>
+
+          <Footer />
+
+      </Router>
       </>
     );
 }
