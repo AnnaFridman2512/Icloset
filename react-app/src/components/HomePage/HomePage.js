@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 // import Carusel from './Carusel.js'
 
 import BgImage from '../../Helpers/CarouselImage/homePage_bg.jpg';
-import '../Home/HomePage.css'
+import '../HomePage/HomePage.css'
 
 
 function HomePage() {

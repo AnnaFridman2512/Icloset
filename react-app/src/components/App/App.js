@@ -3,14 +3,16 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,} from 'react-router-dom'
-
 import React from 'react';
-import HomePage from '../Home/HomePage';
-import Nav from '../Navbar/Nav.js'
-import Item from '../Item/Item.js';
-import Likes from '../Likes/Likes.js';
+
+
+import HomePage from '../HomePage/HomePage';
+import Nav from '../Nav/Nav.js'
+//import AddItems from '../AddtIems/AddItems';
+import MainComponent from '../MainComponent/MainComponent';
+import LikedItems from '../LikedItems/LikedItems';
 import Login from '../Login/Login.js';
-import Footer from '../Home/Footer';
+import Footer from '../HomePage/Footer';
 
 
 function App() {
@@ -22,9 +24,10 @@ function App() {
 
           <Switch>
             <Route path='/' exact component={HomePage} />
-            <Route path='/items' exact component={Item} />
-            <Route path='/likes' exact  component={Likes}/>
-            <Route path='/users' exact component={Login}/>
+            <MainComponent />
+           {/* <Route path='/addItems' component={AddItems} />*/}
+            <LikedItems />
+            <Login />
           </Switch>
 
           <Footer />
@@ -35,3 +38,4 @@ function App() {
 }
 
 export default App;
+

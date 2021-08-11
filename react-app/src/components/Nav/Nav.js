@@ -1,10 +1,11 @@
 import './Nav.css';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useState} from 'react';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ControlPointOutlinedIcon from '@material-ui/icons/ControlPointOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+//import AddItems from '../AddtIems/AddItems';
 
 
 export default function Nav() {
@@ -20,16 +21,16 @@ export default function Nav() {
         <div className='left' id={showLinks ? 'hidden' : ""}> {/* (changing the id value) */}
 
 
-            <Link to='/users'>
+            <Link to='/logIn'>
                 <AccountCircleOutlinedIcon/>Log in
             </Link>
-            <Link to='/items'>
-                <ControlPointOutlinedIcon/>
-                Add Item
+
+            <Link to='/addItems'>
+                Add Items
             </Link>
-            <Link to='/likes'>
+            <Link to='/likedItems'>
                 <FavoriteBorderOutlinedIcon/>
-                Liked Item
+                Liked Items
             </Link>
             
         </div>
