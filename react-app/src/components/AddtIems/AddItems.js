@@ -35,6 +35,7 @@ export default function AddItems(){
     return (
         
       <div className="add-items">
+        <div className="container">
       <h1>Add item</h1>
       <form onSubmit={onSubmitHandler}>
         <input type="file" onChange={fileChangeHandler} />
@@ -42,8 +43,8 @@ export default function AddItems(){
         <br />
         <button type="submit">Submit File to Backend</button>
       </form>
-
-        </div>  
+       </div>
+     </div>  
                                                                  
     );
 

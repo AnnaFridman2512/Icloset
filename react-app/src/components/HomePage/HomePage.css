@@ -11,6 +11,7 @@
 
 }
 
+
 .getStartedBtn{
     color: rgb(228, 181, 224);;
     border: none;
@@ -24,6 +25,17 @@
     font-size: 20px;
     margin: 35px;
 
+}
+
+.container{
+    margin-top: 500px;
+    background-color: rgba(0,0,0, 0.5);
+    text-align: center;
+    height:400px;
+}
+
+ h1{
+    color: white;
 }
 
 @media (max-width: 760px){

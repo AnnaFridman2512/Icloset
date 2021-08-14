@@ -1,18 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 // import Carusel from './Carusel.js'
-
+import './HomePage';
 import BgImage from '../../Helpers/CarouselImage/homePage_bg.jpg';
 import '../HomePage/HomePage.css'
+import MainComponent from '../MainComponent/MainComponent';
 
 
 function HomePage() {
     return (
         <div className='home' style={{backgroundImage: `url(${BgImage})`}}>
             <div className="container" >
-                <Link to='/items' >
-                {/*<button className='getStartedBtn'>Get Started!</button>*/}
-                </Link>
+                <h1>Here MainComponent should be rendered</h1>
+                <MainComponent />
             </div>
        
            {/* <Carusel /> */}

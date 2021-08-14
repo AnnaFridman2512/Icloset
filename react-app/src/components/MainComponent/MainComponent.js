@@ -1,4 +1,4 @@
-
+//MainComponent is rendered in HomePage.js
 import './MainComponent.css';
 
 
