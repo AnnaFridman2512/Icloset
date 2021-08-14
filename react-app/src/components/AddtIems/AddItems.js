@@ -19,18 +19,18 @@ export default function AddItems(){
     data.append("image", fileData);//Adding a key/value pair to "data" using FormData.append:
     
 
-    fetch("http://localhost:8080/single", {
-        method: "POST",
-        body: data,
-      })
-        .then((res) => {
-          console.log("File sent Successfuly");
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+     fetch("http://localhost:8080/addItems", {
+       method: "POST",
+      body: data,
+   })
+     .then((res) => {
+       console.log("File sent Successfuly");
+     })
+    .catch((err) => {
+      console.log(err.message);
+     });
        
-    };
+     };
 
     return (
         

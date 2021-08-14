@@ -11,7 +11,7 @@ function HomePage() {
         <div className='home' style={{backgroundImage: `url(${BgImage})`}}>
             <div className="container" >
                 <Link to='/items' >
-                <button className='getStartedBtn'>Get Started!</button>
+                {/*<button className='getStartedBtn'>Get Started!</button>*/}
                 </Link>
             </div>
        

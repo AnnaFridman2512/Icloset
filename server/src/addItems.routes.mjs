@@ -7,7 +7,7 @@ export const addItemsRouter = express.Router();
 
 const fileStorageEngine = multer.diskStorage({//"diskStorage" is a multer function, it exepts an object with two values: 
     destination: (req, file, cb) => {//"destination" function is the first value.
-        cb(null,'../images');//"destination" function runs the "cb" function. "cb" functions first parametter is an error, we set it to "null"
+        cb(null,"../addedItems/");//"destination" function runs the "cb" function. "cb" functions first parametter is an error, we set it to "null"
                                 //"cb"s second parameter is the path to the folder in which we want to store the pics
     },
     filename:(req, file, cb)=>{//"filename"  function is the second value.
@@ -19,7 +19,7 @@ const fileStorageEngine = multer.diskStorage({//"diskStorage" is a multer functi
 const upload = multer({storage: fileStorageEngine});//"storage"- tells multer where to save the files
 
 
-addItemsRouter.post("/single", upload.single("image"), (req, res) => {//The middleware upload.single('image')- tells multer that only one file is going to be sent, 
+addItemsRouter.post("/", upload.single("image"), (req, res) => {//The middleware upload.single('image')- tells multer that only one file is going to be sent, 
     console.log(req.file);
     res.send('Uploaded :)');
 });
