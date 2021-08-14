@@ -13,8 +13,7 @@ app.use(express.json());//Used to parse JSON bodies
 app.use(cors());
 app.use('/users', usersRouter);
 app.use('/likedItems', likedItemsRouter);
-//
-app.use('/addItems', addItemsRouter);
+//app.use('/addItems', addItemsRouter);
 app.use(express.static('../react-app/build'));
 
 //CRUD - create read apdate delete

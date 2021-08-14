@@ -24,7 +24,7 @@ export default function AddItems(){
       body: data,
    })
      .then((res) => {
-       console.log("File sent Successfuly");
+       console.log("Uploaded:)");
      })
     .catch((err) => {
       console.log(err.message);
@@ -36,7 +36,7 @@ export default function AddItems(){
         
       <div className="add-items">
         <div className="container">
-      <h1>Add item</h1>
+      <h1>Add items</h1>
       <form onSubmit={onSubmitHandler}>
         <input type="file" onChange={fileChangeHandler} />
         <br />

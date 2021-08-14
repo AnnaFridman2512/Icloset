@@ -3,7 +3,7 @@
     height: 90vh;
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: center;
     flex-direction:column ;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,7 +17,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    justify-content: center;
+    justify-content: left;
     background-color: black;
     height: 50px;
     width: 180px;
@@ -28,10 +28,12 @@
 }
 
 .container{
-    margin-top: 500px;
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(0,0,0, 0.5);
-    text-align: center;
-    height:400px;
+    height: 500px;
 }
 
  h1{

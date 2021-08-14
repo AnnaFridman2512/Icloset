@@ -2,10 +2,10 @@ import './Nav.css';
 import {Link} from "react-router-dom";
 import {useState} from 'react';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-//import ControlPointOutlinedIcon from '@material-ui/icons/ControlPointOutlined';
+import ControlPointOutlinedIcon from '@material-ui/icons/ControlPointOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
-// import AddItems from '../AddtIems/AddItems';
+
 
 
 export default function Nav() {
@@ -26,6 +26,7 @@ export default function Nav() {
             </Link>
 
             <Link to='/addItems'>
+            <ControlPointOutlinedIcon/>
                 Add Items
             </Link>
             <Link to='/likedItems'>
