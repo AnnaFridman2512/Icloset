@@ -16,7 +16,7 @@ export default function AddItems(){
     // Handle File Data from the state Before Sending
      const data = new FormData();//The FormData() constructor creates a new FormData object.
 
-    data.append("image", fileData);//Adding a key/value pair to "data" using FormData.append:
+    data.append("file", fileData);//Adding a key/value pair to "data" using FormData.append:
     
 
      fetch("http://localhost:8080/addItems", {
