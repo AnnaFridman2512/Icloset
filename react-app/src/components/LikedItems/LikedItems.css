@@ -1,7 +1,7 @@
-.liked-items{
+.liked-items {
     width: 100%;
-    height:90vh;
-    background-image:url(../../Helpers/CarouselImage/1.jpg);
+    height: 90vh;
+    background-image: url(../../Helpers/CarouselImage/1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,10 +10,11 @@
     align-items: center;
 }
 
-.container {
+
+/* .container {
     margin-bottom: 300px;
     width: 800px;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-}
+} */

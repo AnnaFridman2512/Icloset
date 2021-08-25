@@ -1,0 +1,147 @@
+div .main-component {
+    /* padding: 20px; */
+    height: 100%;
+    width: 80%;
+    /* width: 35%;
+    height: 70%;
+     */
+    border-radius: 5px;
+    background: white;
+    display: grid;
+    grid-template-rows: repeat(4, 25%);
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: "image1 image2  " "image1 image2" "image3 buttons" "image3 buttons";
+    justify-items: center;
+    justify-content: center;
+    align-items: stretch;
+    align-content: space-around;
+    /* overflow: scroll; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-content: center;
+    /* align-items: space-around; */
+}
+
+.main-component-dress {
+    /* width: 35%;
+    height: 70%;
+    border-radius: 5px; */
+    border-radius: 5px;
+    background: white;
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-rows: repeat(4, 25%);
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas: "image1 image2 " "image1 image2" "image1 buttons" "image1 buttons";
+    justify-items: center;
+    justify-content: center;
+    align-items: stretch;
+    align-content: space-around;
+    /* overflow: scroll; */
+}
+
+h2 {
+    text-align: center
+}
+
+img {
+    margin: auto;
+    display: flex;
+    justify-items: center;
+    height: 90%;
+    width: 95%;
+    object-fit: contain;
+    border-radius: 3px;
+    /* animation-duration: 3s;
+    animation-name: slidein; */
+    /* border: 1px solid; */
+    /* background: white; */
+}
+
+
+/* @keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 0%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+} */
+
+
+/* ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    margin: 0;
+} */
+
+.first {
+    grid-area: image1;
+    /* align-self: flex-start; */
+}
+
+.dress {
+    height: 60vh;
+    min-height: 200px;
+    margin: auto;
+}
+
+.second {
+    grid-area: image2;
+    /* align-self: flex-end; */
+}
+
+.third {
+    grid-area: image3;
+    /* align-self: flex-start; */
+}
+
+.buttons {
+    grid-area: buttons;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+    width: 80%;
+}
+
+
+/* button {
+    display: inline-block;
+    align-self: flex-end;
+} */
+
+div button.findMeButton {
+    line-height: 100%;
+    margin: 5px;
+    border-style: none;
+    background: #eb5b8c;
+    /* border: solid 50px rgba(255, 255, 255, 0.192); */
+    width: 90%;
+    width: 300px;
+    height: 50px;
+    /* height: 25%; */
+    border-radius: 10px;
+    color: white;
+    /* font-size: 18px; */
+    font-size: 90%;
+    cursor: pointer;
+}
+
+div button.findMeButton.likeButton {
+    line-height: 100%;
+    font-size: 90%;
+    height: 25%;
+    /* margin: 4px; */
+    /* margin: auto; */
+    width: 90%;
+}

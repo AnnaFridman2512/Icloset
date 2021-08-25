@@ -8,14 +8,14 @@ import MainComponent from '../MainComponent/MainComponent';
 
 function HomePage() {
     return (
-        <div className='home' style={{backgroundImage: `url(${BgImage})`}}>
+        <div className='home' style={{ backgroundImage: `url(${BgImage})` }}>
             <div className="container" >
-                <h1>Here MainComponent should be rendered</h1>
+                {/* <h1>Here MainComponent should be rendered</h1> */}
                 <MainComponent />
             </div>
-       
-           {/* <Carusel /> */}
-      
+
+            {/* <Carusel /> */}
+
         </div>
     )
 }

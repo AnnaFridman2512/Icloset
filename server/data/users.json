@@ -1,25 +1,25 @@
-[
-    {
+[{
         "name": "Anna",
-        "id":1,
+        "id": 1,
         "password": 1234,
         "ItemsArray": []
+
     },
     {
         "name": "Adi",
-        "id":2,
+        "id": 2,
         "password": 5678,
         "ItemsArray": []
     },
     {
         "name": "Yehiel",
-        "id":3,
+        "id": 3,
         "password": 1010,
         "ItemsArray": []
     },
     {
         "name": "Josh",
-        "id":4,
+        "id": 4,
         "password": 2020,
         "ItemsArray": []
     }
