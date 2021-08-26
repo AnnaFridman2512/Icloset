@@ -24,7 +24,7 @@ function App() {
 
           <Switch>
             <Route path='/' exact >
-              <HomePage />{/*MainComponent is rendered in HonePage*/}
+              <HomePage />{/*MainComponent is rendered in HomePage*/}
             </Route>
             <Route path="/addItems">
               <AddItems />

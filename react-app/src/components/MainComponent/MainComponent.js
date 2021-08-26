@@ -1,7 +1,7 @@
 //MainComponent is rendered in HomePage.js
 import './MainComponent.css';
-
-import { useRef, useState, useEffect } from 'react';
+//import {useRef} from 'react';
+import {useState, useEffect } from 'react';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 
@@ -50,13 +50,13 @@ export default function MainComponent() {
                 :
                 <div className={collection[0].productType !== 'dress' ? 'main-component' : 'main-component-dress'}>
 
-                    <img className={collection[0].productType !== 'dress' ? "first" : 'dress'} src={collection[0].imageUrl} alt="top item image" />
+                    <img className={collection[0].productType !== 'dress' ? "first" : 'dress'} src={collection[0].imageUrl} alt="top item " />
                     {
                         collection[0].productType !== 'dress' ?
-                            <img className="third" src={collection[1].imageUrl} alt="buttom item image" />
+                            <img className="third" src={collection[1].imageUrl} alt="buttom item " />
                             : null
                     }
-                    <img className='second' src={collection[2].imageUrl} alt="shoes item image" />
+                    <img className='second' src={collection[2].imageUrl} alt="shoes item " />
                     <div className="buttons">
                         <button className='findMeButton likeButton' > <FavoriteBorderOutlinedIcon /> </button>
                         <button className='findMeButton likeButton' onClick={() => setOn(true)}><AutorenewIcon /> </button>
