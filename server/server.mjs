@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 
 
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json()); //Used to parse JSON bodies
 app.use('/addedItems', express.static(path.join(__dirname, 'addedItems')));
@@ -38,22 +38,22 @@ app.use(express.static('../react-app/build'));
 //Rest URL /[object name]s - this is how we write the routs, name of the object in numerous way 'product'- /products
 
 
-const fileStorageEngine = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "./addedItems/"); //important this is a direct path fron our current file to storage location
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + "--" + file.originalname);
-    },
-});
+// const fileStorageEngine = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, "./addedItems/"); //important this is a direct path fron our current file to storage location
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, Date.now() + "--" + file.originalname);
+//     },
+// });
 
-const upload = multer({ storage: fileStorageEngine });
+// const upload = multer({ storage: fileStorageEngine });
 
 
-app.post("/addItems", upload.single("image"), (req, res) => {
-    console.log(req.file);
-    res.send("Uploaded :)");
-});
+// app.post("/addItems", upload.single("image"), (req, res) => {
+//     console.log(req.file);
+//     res.send("Uploaded :)");
+// });
 
 
 
