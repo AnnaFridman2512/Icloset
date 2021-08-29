@@ -20,11 +20,6 @@ export default function Nav() {
         </div>
         <div className='left' id={showLinks ? 'hidden' : ""}> {/* (changing the id value) */}
 
-
-            <Link to='/logIn'>
-                <AccountCircleOutlinedIcon/>Log in
-            </Link>
-
             <Link to='/addItems'>
             <ControlPointOutlinedIcon/>
                 Add Items
@@ -32,6 +27,10 @@ export default function Nav() {
             <Link to='/likedItems'>
                 <FavoriteBorderOutlinedIcon/>
                 Liked Items
+            </Link>
+            
+            <Link to='/logIn'>
+                <AccountCircleOutlinedIcon/>Log in
             </Link>
             
         </div>
