@@ -9,7 +9,7 @@ const __dirname = path.resolve();
 import { usersRouter } from './src/users.routes.mjs';
 import { likedItemsRouter } from './src/likedItems.routes.mjs';
 import { addItemsRouter } from './src/addItems.routes.mjs';
-import { connect } from './connect.mjs';
+import { connect } from './db/connect.mjs';
 import { collectionRouter } from './src/findCollection.mjs'
 
 const app = express();
