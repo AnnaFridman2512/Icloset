@@ -21,6 +21,7 @@
     background: none;
     color: #eb5b8c;
     cursor: pointer;
+    font-size: xx-large;
 }
 
 .delete_icon:hover{
