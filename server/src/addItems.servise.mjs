@@ -1,17 +1,18 @@
 import multer from 'multer';
 
-import { SingleFile } from "../Singlefile.model.mjs";
-
-export  const singleFileUpload = async(req, res, next) => {
+import { SingleFile } from "../db/Singlefile.model.mjs";
+export  async function singleFileUpload(req, res, next){
     try{
         const file = new SingleFile({
             fileName:req.file.originalname,
             filePath: req.file.path,
             fileType: req.file.mimetype,
-            fileSize: fileSizeFormatter(req.file.size, 2)//0.00
+            fileSize: fileSizeFormatter(req.file.size, 2),//0.00
+            type:req.file.type,
+            productType:req.file.productType
         })   
         await file.save();//creating SingleFile collection
-        console.log(file);
+
         res.status(201).send('File Uploaded:)');
     }catch(error){
         res.status(400).send(error.message);
