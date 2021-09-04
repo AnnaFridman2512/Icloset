@@ -17,7 +17,8 @@ export default function AddItems(){
 
     const handleTypechange = (e) => {
       setType(e.target.value);
-     /* if(type === "top" ){
+      const type = e.target.value;
+      if(type === "top"){
         setTopSelect(true);
         setBottomSelect(false);
         setShoesSelect(false);
@@ -37,7 +38,7 @@ export default function AddItems(){
         setShoesSelect(false);
         setBottomSelect(false);
         setTopSelect(false);        
-      }*/
+      }
     }
 
     const handleProductTypechange = (e) => {
@@ -104,12 +105,12 @@ export default function AddItems(){
 
         <select value={productType} onChange={handleProductTypechange}>
                 <option>-- select an option -- </option>
-                <option /*disabled={topSelect ? false : true}*/>top</option>
-                <option /*disabled={bottomSelect ? false : true}*/ >pants</option>
-                <option /*disabled={bottomSelect ? false : true}*/>shorts</option>
-                <option /* disabled={bottomSelect ? false : true}*/>skirt</option>
-                <option /*disabled={elseSelect ? false : true}*/>dress</option>
-                <option /*disabled={shoesSelect ? false : true}*/>shoes</option>
+                <option disabled={topSelect ? false : true}>top</option>
+                <option disabled={bottomSelect ? false : true} >pants</option>
+                <option disabled={bottomSelect ? false : true}>shorts</option>
+                <option  disabled={bottomSelect ? false : true}>skirt</option>
+                <option disabled={elseSelect ? false : true}>dress</option>
+                <option disabled={shoesSelect ? false : true}>shoes</option>
             </select>                
             <div>{productType}</div>
             

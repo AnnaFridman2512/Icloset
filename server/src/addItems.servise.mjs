@@ -3,13 +3,15 @@ import multer from 'multer';
 import { SingleFile } from "../db/Singlefile.model.mjs";
 export  async function singleFileUpload(req, res, next){
     try{
+        console.log(req.body);
         const file = new SingleFile({
             fileName: req.file.originalname,
             filePath: req.file.path,
             fileType: req.file.mimetype,
             fileSize: fileSizeFormatter(req.file.size, 2),//0.00
-            //type:req.file.type,
-            //productType:req.file.productType
+            type:req.body.type,
+            productType:req.body.productType,
+
         })   
         await file.save();//creating SingleFile collection
 
