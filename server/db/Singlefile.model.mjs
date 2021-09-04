@@ -16,6 +16,14 @@ const singleFileSchema = new mongoose.Schema({
   fileSize: {
     type: String,
     required: true
+  },
+ type: {//top/bottom/shoes
+    type: String,
+    //required:true
+  },
+  productType: {//pants, skirt, shorts, dress,shoes
+    type: String,
+    //required: true
   }
 }, {timestamps : true});
 
