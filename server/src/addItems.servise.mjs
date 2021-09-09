@@ -1,9 +1,11 @@
+import { response } from 'express';
 import multer from 'multer';
-
 import { SingleFile } from "../db/Singlefile.model.mjs";
+//let message = "";
+
 export  async function singleFileUpload(req, res, next){
     try{
-        console.log(req.body);
+        
         const file = new SingleFile({
             fileName: req.file.originalname,
             filePath: req.file.path,
@@ -11,13 +13,30 @@ export  async function singleFileUpload(req, res, next){
             fileSize: fileSizeFormatter(req.file.size, 2),//0.00
             type:req.body.type,
             productType:req.body.productType,
-
-        })   
-        await file.save();//creating SingleFile collection
-
-        res.status(201).send('File Uploaded:)');
-    } catch (error) {
+            
+        })  
+        
+        await SingleFile.findOne({fileName: file.fileName}, function(err, existingItem){
+            if(existingItem === null){
+            file.save();//creating SingleFile if item doesn't exist
+            res.status(201).send(`${file.fileName} Uploaded:) `);
+         }else{
+             res.json(null);
+             console.log(`${file.fileName}  already exists!`);
+             //message = "Item already exists! ";
+         }
+        })
+    }catch (error) {
         res.status(400).send(error.message);
+    }
+}
+
+//filter for a spesific file we want to store
+const filefilter = (req, file, cb) => {
+    if (file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg') {
+        cb(null, true) //callback will return true if the file type is correct
+    } else {
+        cb(null, false);
     }
 }
 
@@ -43,12 +62,12 @@ const storage = multer.diskStorage({ //"diskStorage" is a multer function, it ex
 
 
 //filter for a spesific file we want to store
-const filefilter = (req, file, cb) => {
-    if (file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg') {
-        cb(null, true) //callback will return true if the file type is correct
+const checkIfExists = (req, file, cb) => {
+    if (file.fileName !== null) {
+        cb(null, true) //callback will return true if the file name doesn't exist
     } else {
         cb(null, false);
     }
 }
 
-export const upload = multer({ storage: storage, fileFilter: filefilter }); //"storage"- tells multer where to save the files
+export const upload = multer({ storage: storage, fileFilter: filefilter, checkIfExists:checkIfExists }); //"storage"- tells multer where to save the files
