@@ -18,7 +18,7 @@ export default function AddItems(){
     const handleTypechange = (e) => {
       setType(e.target.value);
       const type = e.target.value;
-      if(type === "top"){
+      if(type === "top" ){
         setTopSelect(true);
         setBottomSelect(false);
         setShoesSelect(false);
@@ -118,7 +118,7 @@ export default function AddItems(){
         {error && <p className="errorMsg">File not supported</p>}
       <div
        className="imgPreview"
-       style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/cover` : "#131313"}} //if we choose am img- show preview, else show background color
+       style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/contain `: "#131313"}} //if we choose am img- show preview, else show background color
        >
         {!imgPreview && (
           <>
