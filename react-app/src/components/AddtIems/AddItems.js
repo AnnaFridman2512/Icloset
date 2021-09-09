@@ -50,6 +50,18 @@ export default function AddItems(){
       setError(false);
       const selected = e.target.files[0];//The target property of the Event interface is a reference to the object onto which the event was dispatched.
                                           //.files[0] - Accessing the first selected file
+      const allowedTypes =["image/png", "image/jpeg", "image/jpg"];
+
+      if(selected && allowedTypes.includes(selected.type)){
+        let reader = new FileReader();
+        reader.onloadend = () =>{
+          setImgPreview(reader.result);//show the img that is selected
+        }
+          reader.readAsDataURL(selected);
+        }else{
+          setError(true);
+      }
+
        setFileData(selected);                                     
        if(selected){
         let reader = new FileReader();
@@ -62,6 +74,10 @@ export default function AddItems(){
       }
       };
 
+     
+//export function deleteProduct(id) {
+  //return Product.findOneAndDelete({ _id: ObjectId(id) });
+//}
     
     const onSubmitHandler = (e) => {
         e.preventDefault();//prevent submit button default behavior
@@ -72,14 +88,15 @@ export default function AddItems(){
     data.append("file", fileData);//Adding a key/value pair to "data" using FormData.append:
     data.append("type", type);
     data.append("productType", productType);
-    
+
+
 
      fetch("http://localhost:8080/addItems", {
        method: "POST",
       body: data,
    })
      .then((res) => {
-       console.log("Uploaded:)");
+       console.log(`Uploaded`);
      })
     .catch((err) => {
       console.log(err.message);
@@ -130,10 +147,11 @@ export default function AddItems(){
       </div>
       {/*if imgPreview exists we render the button*/}
       {imgPreview && (
-        <button onClick={()=> setImgPreview(null)}>Remove item</button>
+        <button onClick={()=> setImgPreview(null)}>Select different item</button>
       )}
     </div>
         <button type="submit">Submit File to Backend</button>
+
       </form>
     </div>
   </div>  
