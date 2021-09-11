@@ -1,4 +1,5 @@
 import express from 'express';
+import { getLiked } from './likedItems.service.mjs';
 
 import { deleteCombination } from './likedItems.service.mjs';
 import { addLiked } from './likedItems.service.mjs';
@@ -15,8 +16,16 @@ likedItemsRouter.post("/", (req, res) => {
 });
 
 //Get liked combinations by user id
+// likedItemsRouter.get("/:id", (req, res) => {
+//      res.send(getLIked(req.params.id));
+// });
+likedItemsRouter.get("/", (req, res) => {
+    res.send(getLiked());
+});
+
+
 likedItemsRouter.get("/:id", (req, res) => {
-     res.send(getLIked(req.params.id));
+    res.send(getLIked(req.params.id));
 });
 
 
