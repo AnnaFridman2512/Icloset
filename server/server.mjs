@@ -4,6 +4,7 @@ import path from 'path';
 
 
 
+
 const __dirname = path.resolve();
 
 import { usersRouter } from './src/users.routes.mjs';
@@ -14,12 +15,15 @@ import { collectionRouter } from './src/findCollection.mjs'
 
 const app = express();
 
-
-
 app.use(express.json()); //Used to parse JSON bodies
-app.use('/addedItems', express.static(path.join(__dirname, 'addedItems')));
 app.use(express.urlencoded()); //Parse URL-encoded bodies
+
+
 app.use(cors());
+
+app.use('/addedItems', express.static(path.join(__dirname, 'addedItems')));
+
+
 
 
 app.use('/users', usersRouter);

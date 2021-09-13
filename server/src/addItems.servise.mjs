@@ -1,4 +1,5 @@
-import { response } from 'express';
+import fs from 'fs';
+//import { response } from 'express';
 import multer from 'multer';
 import { SingleFile } from "../db/Singlefile.model.mjs";
 //let message = "";
@@ -23,6 +24,10 @@ export  async function singleFileUpload(req, res, next){
          }else{
              res.json(null);
              console.log(`${file.fileName}  already exists!`);
+             fs.unlink(file.filePath, (err) => {
+                 if (err) console.log(err.message);
+                 else console.log(`${file.fileName} you just added is deleted from addedItems folder`);
+             });
              //message = "Item already exists! ";
          }
         })
