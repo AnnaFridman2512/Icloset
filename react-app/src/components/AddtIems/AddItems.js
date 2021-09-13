@@ -47,7 +47,7 @@ export default function AddItems(){
     }
 
     const fileChangeHandler = (e) => {
-      setError(false);
+      setError(false);//clear error message when nre item added
       const selected = e.target.files[0];//The target property of the Event interface is a reference to the object onto which the event was dispatched.
                                           //.files[0] - Accessing the first selected file
       const allowedTypes =["image/png", "image/jpeg", "image/jpg"];
@@ -75,10 +75,7 @@ export default function AddItems(){
       };
 
      
-//export function deleteProduct(id) {
-  //return Product.findOneAndDelete({ _id: ObjectId(id) });
-//}
-    
+
     const onSubmitHandler = (e) => {
         e.preventDefault();//prevent submit button default behavior
          
@@ -88,7 +85,6 @@ export default function AddItems(){
     data.append("file", fileData);//Adding a key/value pair to "data" using FormData.append:
     data.append("type", type);
     data.append("productType", productType);
-
 
 
      fetch("http://localhost:8080/addItems", {
@@ -110,7 +106,7 @@ export default function AddItems(){
         <div className="container">
       <h1>Add items</h1>
       <form onSubmit={onSubmitHandler}>
-      <select value={type} onChange={handleTypechange}>
+      <select value={type} onChange={handleTypechange} >
                 <option>-- select an option -- </option>
                 <option>top</option>
                 <option>bottom</option>
@@ -120,7 +116,7 @@ export default function AddItems(){
             <div>{type}</div>
 
 
-        <select value={productType} onChange={handleProductTypechange}>
+        <select value={productType} onChange={handleProductTypechange} >
                 <option>-- select an option -- </option>
                 <option disabled={topSelect ? false : true}>top</option>
                 <option disabled={bottomSelect ? false : true} >pants</option>
