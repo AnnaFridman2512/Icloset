@@ -1,55 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import "./CollectionCard.css";
 
 
-function CollectionCard({ collection }) {
 
+
+function CollectionCard({ collection, setCollection, id }) {
   
-  const deletebtn = (id) => {
-    //   const newCollection = likedcollection.filter(likedcollection => likedcollection.id !== id);
-    //   setLikedCollection(newCollection)
+    const deleteBtn = (id) => {
+      const newCollection = collection.filter(collection =>
+    collection.id !== id);   
+    setCollection(newCollection)
   };
+
 
   return (
     <>
       <div className="collection-card">
-        <div className="Collection_Item">
-          {collection.map((liked) => {
-            return (
-              <div
-                className={
-                  collection[0].productType !== "dress"
-                    ? "main-component"
-                    : "main-component-dress"
-                }
-              >
-                <img
-                  className={
-                    collection[0].productType !== "dress" ? "first" : "dress"
-                  }
-                  src={collection[0].imageUrl}
-                  alt="top item "
-                />
-                {collection[0].productType !== "dress" ? (
-                  <img
-                    className="third"
-                    src={collection[1].imageUrl}
-                    alt="buttom item "
-                  />
-                ) : null}
-                <img
-                  className="second"
-                  src={collection[2].imageUrl}
-                  alt="shoes item "
-                />
-              </div>
-            );
-          })}
+        <div className="Collection_Item"> 
+            {collection.map(({productType,imageUrl,type}) => <img key={type} className={`liked-${type}`} src={imageUrl} alt={productType} />)} 
         </div>
+       
+        
+        {/* {collection.length === 0 ? 'Loading...' : collection.map((item) => <Combination key={collection.id} {...item}/>)} */}
       </div>
-
-      <DeleteOutlineOutlinedIcon className="delete_icon" onClick={deletebtn} />
+      <DeleteOutlineOutlinedIcon className="delete_icon" onClick={()=>deleteBtn(id)} />
     </>
   );
 }

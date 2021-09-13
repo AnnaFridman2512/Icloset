@@ -18,7 +18,7 @@ export default function Nav() {
         <Link to='/'> I CLOSET </Link>
 
         </div>
-        <div className='left' id={showLinks ? 'hidden' : ""}> {/* (changing the id value) */}
+        <div className='right' id={showLinks ? 'hidden' : ""}> {/* (changing the id value) */}
 
             <Link to='/addItems'>
             <ControlPointOutlinedIcon/>
