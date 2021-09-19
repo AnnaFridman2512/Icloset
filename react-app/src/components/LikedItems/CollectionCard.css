@@ -50,5 +50,6 @@
 }
 
 .delete_icon:hover{
-    color: rgb(228, 181, 224);
+    transform: scale(1.3);
+
 }
