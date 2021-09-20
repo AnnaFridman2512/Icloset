@@ -5,7 +5,8 @@ import React, { useState } from "react";
 export default function AddItems(){
     const [fileData, setFileData] = useState();
     const [imgPreview, setImgPreview] = useState(null);
-    const [error, setError] = useState(false);
+    const [fileTypeError, setFileTypeError] = useState(false);
+    const [fileExistsError, setFileExistsError] = useState(false);
     const [type, setType] = useState('');//top bottom shoes else 
     const [productType, setProductType] = useState('');//top pants shorts dress skirt shoes
     const [topSelect, setTopSelect] = useState(false);
@@ -47,7 +48,9 @@ export default function AddItems(){
     }
 
     const fileChangeHandler = (e) => {
-      setError(false);//clear error message when nre item added
+      setFileTypeError(false);//clear error message when new item added
+      setFileExistsError(false);
+
       const selected = e.target.files[0];//The target property of the Event interface is a reference to the object onto which the event was dispatched.
                                           //.files[0] - Accessing the first selected file
       const allowedTypes =["image/png", "image/jpeg", "image/jpg"];
@@ -59,10 +62,11 @@ export default function AddItems(){
         }
           reader.readAsDataURL(selected);
         }else{
-          setError(true);
+          setFileTypeError(true);
       }
 
-       setFileData(selected);                                     
+       setFileData(selected);
+                             
        if(selected){
         let reader = new FileReader();
         reader.onloadend = () =>{
@@ -70,7 +74,7 @@ export default function AddItems(){
         }
         reader.readAsDataURL(selected);
       }else{
-        setError(true);
+        setFileTypeError(true);
       }
       };
 
@@ -89,15 +93,10 @@ export default function AddItems(){
 
      fetch("http://localhost:8080/addItems", {
        method: "POST",
-      body: data,
+       body: data,
+
    })
-     .then((res) => {
-       console.log(`Uploaded`);
-     })
-    .catch((err) => {
-      console.log(err.message);
-     });
-       
+     .then(res => res.status !== 201 ? setFileExistsError(true) : setFileExistsError(false))
      };
 
     return (
@@ -128,7 +127,8 @@ export default function AddItems(){
             <div>{productType}</div>
             
         <div className="container2">
-        {error && <p className="errorMsg">File not supported</p>}
+        {fileTypeError && <p className="errorMsg">File not supported</p>}
+        {fileExistsError && <p className="errorMsg">Item already exists</p>}
       <div
        className="imgPreview"
        style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/contain `: "#131313"}} //if we choose am img- show preview, else show background color

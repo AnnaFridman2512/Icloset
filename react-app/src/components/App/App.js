@@ -10,7 +10,7 @@ import HomePage from '../HomePage/HomePage';
 import Nav from '../Nav/Nav.js'
 import AddItems from '../AddtIems/AddItems';
 //import MainComponent from '../MainComponent/MainComponent';
-import LikedItems from '../LikedItems/LikedItems';
+//import LikedItems from '../LikedItems/LikedItems';
 import Login from '../Login/Login.js';
 import Footer from '../HomePage/Footer';
 
@@ -30,7 +30,7 @@ function App() {
               <AddItems />
             </Route>
             <Route path='/likedItems'>
-              <LikedItems />
+              {/*<LikedItems />**/}
             </Route>
             <Route path='/logIn'>
               <Login />

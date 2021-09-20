@@ -22,13 +22,11 @@ export  async function singleFileUpload(req, res, next){
             file.save();//creating SingleFile if item doesn't exist
             res.status(201).send(`${file.fileName} Uploaded:) `);
          }else{
-             res.json(null);
-             console.log(`${file.fileName}  already exists!`);
+             existingItem = null;
+             res.send(`${file.fileName} item already exists!`);
              fs.unlink(file.filePath, (err) => {
-                 if (err) console.log(err.message);
-                 else console.log(`${file.fileName} you just added is deleted from addedItems folder`);
+                 if (err) console.log('error');
              });
-             //message = "Item already exists! ";
          }
         })
     }catch (error) {
