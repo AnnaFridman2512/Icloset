@@ -59,6 +59,55 @@
 
 }
 
+@media (max-width: 740px) {
+    
+    .liked-items {
+        width: 100%;
+        height: 90vh;
+        background-image: url(../../Helpers/CarouselImage/1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .carusel{
+        width: 70%; 
+        height: 500px; 
+        margin: 40px, 0;
+        display: flex;
+        flex-direction: column;
+        transform: scale(1);
+        
+    }
+     .caruselInner .left{
+        flex: 5%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        color:white;
+        
+    }
+    .caruselInner .right{
+        flex: 5%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        color:white;
+    }
+    .caruselInner .center{
+        flex: 100%;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    
+    }
+    
+}
 
 
 

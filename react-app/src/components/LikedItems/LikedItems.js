@@ -25,9 +25,9 @@ export default function LikedItems() {
      }
   };
 
-  // Get one item
+  // Get all item
   useEffect(() => {
-    fetch(`http://localhost:8080/likedItems/`)
+    fetch(`http://localhost:8080/api/likedItems/`)
       .then((response) => response.json())
       .then((data) => {
         console.log("collection data", data);
