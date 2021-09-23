@@ -7,6 +7,7 @@ export default function AddItems(){
     const [imgPreview, setImgPreview] = useState(null);
     const [fileTypeError, setFileTypeError] = useState(false);
     const [fileExistsError, setFileExistsError] = useState(false);
+    const [itemAddedMsg, setItemAddedMsg] = useState(false);
     const [type, setType] = useState('');//top bottom shoes else 
     const [productType, setProductType] = useState('');//top pants shorts dress skirt shoes
     const [topSelect, setTopSelect] = useState(false);
@@ -19,6 +20,7 @@ export default function AddItems(){
     const handleTypechange = (e) => {
       setType(e.target.value);
       const type = e.target.value;
+
       if(type === "top" ){
         setTopSelect(true);
         setBottomSelect(false);
@@ -44,25 +46,27 @@ export default function AddItems(){
 
     const handleProductTypechange = (e) => {
       setProductType(e.target.value)
-      
     }
 
     const fileChangeHandler = (e) => {
       setFileTypeError(false);//clear error message when new item added
       setFileExistsError(false);
+      setItemAddedMsg(false);
 
       const selected = e.target.files[0];//The target property of the Event interface is a reference to the object onto which the event was dispatched.
                                           //.files[0] - Accessing the first selected file
       const allowedTypes =["image/png", "image/jpeg", "image/jpg"];
 
       if(selected && allowedTypes.includes(selected.type)){
-        let reader = new FileReader();
-        reader.onloadend = () =>{
+        let reader = new FileReader();//'FileReader' object lets web applications asynchronously read the contents of files
+        reader.onloadend = () =>{//'onloadend' event is fired when a request has completed, whether successfully (after load) or unsuccessfully (after abort or error).
+                                //This event is triggered each time the reading operation is completed
           setImgPreview(reader.result);//show the img that is selected
         }
-          reader.readAsDataURL(selected);
+          reader.readAsDataURL(selected);//Starts reading the contents of the specified Blob, once finished, the result attribute contains a data: URL representing the file's data
+                                        //The Blob object represents a blob, which is a file-like object of immutable, raw data
         }else{
-          setFileTypeError(true);
+          setFileTypeError(true);//Show error msg
       }
 
        setFileData(selected);
