@@ -15,7 +15,7 @@ export default function AddItems(){
     const [shoesSelect, setShoesSelect] = useState(false);
     const [elseSelect, setElseSelect] = useState(false);
 
-
+    
 
     const handleTypechange = (e) => {
       setType(e.target.value);
@@ -51,8 +51,8 @@ export default function AddItems(){
     const fileChangeHandler = (e) => {
       setFileTypeError(false);//clear error message when new item added
       setFileExistsError(false);
-      setItemAddedMsg(false);
-
+      setItemAddedMsg(false);  
+      
       const selected = e.target.files[0];//The target property of the Event interface is a reference to the object onto which the event was dispatched.
                                           //.files[0] - Accessing the first selected file
       const allowedTypes =["image/png", "image/jpeg", "image/jpg"];
@@ -65,11 +65,13 @@ export default function AddItems(){
         }
           reader.readAsDataURL(selected);//Starts reading the contents of the specified Blob, once finished, the result attribute contains a data: URL representing the file's data
                                         //The Blob object represents a blob, which is a file-like object of immutable, raw data
+                                                                              
         }else{
           setFileTypeError(true);//Show error msg
       }
 
        setFileData(selected);
+       
                              
        if(selected){
         let reader = new FileReader();
@@ -100,8 +102,17 @@ export default function AddItems(){
        body: data,
 
    })
-     .then(res => res.status !== 201 ? setFileExistsError(true) : setFileExistsError(false))
+     .then(res => {
+       if(res.status !== 201){
+         setFileExistsError(true)
+        }else{
+          setFileExistsError(false)
+          setItemAddedMsg(true)
+        }
+      })
      };
+
+
 
     return (
         
@@ -150,7 +161,7 @@ export default function AddItems(){
       {imgPreview && (
         <>
         <button onClick={()=> setImgPreview(null)}>Select different item</button>
-        <button type="submit">Submit File to Backend</button>
+        <button type="submit" >Add to closet</button>
         </>
       )}
     </div>
