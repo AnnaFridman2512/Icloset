@@ -91,7 +91,7 @@ export default function AddItems(){
     data.append("productType", productType);
 
 
-     fetch("http://localhost:8080/addItems", {
+     fetch("http://localhost:8080/api/addItems", {
        method: "POST",
        body: data,
 

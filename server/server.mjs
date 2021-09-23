@@ -21,15 +21,15 @@ app.use(express.urlencoded()); //Parse URL-encoded bodies
 
 app.use(cors());
 
-app.use('/addedItems', express.static(path.join(__dirname, 'addedItems')));
+app.use('/api/addedItems', express.static(path.join(__dirname, 'addedItems')));
 
 
 
 
-app.use('/users', usersRouter);
-app.use('/likedItems', likedItemsRouter);
-app.use('/collection', collectionRouter)
-app.use('/addItems', addItemsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/likedItems', likedItemsRouter);
+app.use('/api/collection', collectionRouter)
+app.use('/api/addItems', addItemsRouter);
 app.use(express.static('../react-app/build'));
 
 
