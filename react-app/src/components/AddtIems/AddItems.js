@@ -133,6 +133,7 @@ export default function AddItems(){
         <div className="container2">
         {fileTypeError && <p className="errorMsg">File not supported</p>}
         {fileExistsError && <p className="errorMsg">Item already exists</p>}
+        {itemAddedMsg && <p className="addedMsg">Item added to closet</p>}
       <div
        className="imgPreview"
        style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/contain `: "#131313"}} //if we choose am img- show preview, else show background color
@@ -147,10 +148,13 @@ export default function AddItems(){
       </div>
       {/*if imgPreview exists we render the button*/}
       {imgPreview && (
+        <>
         <button onClick={()=> setImgPreview(null)}>Select different item</button>
+        <button type="submit">Submit File to Backend</button>
+        </>
       )}
     </div>
-        <button type="submit">Submit File to Backend</button>
+        
 
       </form>
     </div>
