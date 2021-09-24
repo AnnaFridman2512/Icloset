@@ -13,10 +13,10 @@ const [items, setItems] = useState([]);//At the begining we have an empty array 
 
 
 useEffect(()=> {//What is written inside this function is going to be executed when the component is rendered
+    
     fetch('/api/viewAll')
-    .then(response => console.log(response.json()))//After fetching take the response (that came as a stirng) json() will convert the string in-to an array of objects.
+    .then(response =>response.json())//After fetching take the response (that came as a stirng) json() will convert the string in-to an array of objects.
     .then(itemssArr => setItems(itemssArr))//Takes the items array of objects, that we got above and replaces the empty 'items' array with the one we got from fetch()
-
   }, []);
   
 

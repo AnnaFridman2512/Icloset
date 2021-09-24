@@ -7,10 +7,12 @@ export default function Item({
     productType
 
 }){
+
     return(
        <div className="item">
+           {filePath}
            <img src={filePath} className="item-image" alt="item-img"/>
-           <span>{type}</span>
+           {/*<span>{type}</span>*/}
            <span>{productType}</span>
            <button >Delete from closet</button>
        </div>
