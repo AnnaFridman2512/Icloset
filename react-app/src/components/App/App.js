@@ -5,7 +5,7 @@ import {
   Route,} from 'react-router-dom'
 import React from 'react';
 
-
+import ViewAllProvider from '../viewAll/ViewAllContext.js';
 import HomePage from '../HomePage/HomePage';
 import Nav from '../Nav/Nav.js'
 import AddItems from '../AddtIems/AddItems';
@@ -20,6 +20,7 @@ function App() {
   
     return(
       <Router>
+        <ViewAllProvider>
       <>
           <Nav />
 
@@ -45,6 +46,7 @@ function App() {
          
  
       </>
+      </ViewAllProvider>
     </Router>
     );
 }

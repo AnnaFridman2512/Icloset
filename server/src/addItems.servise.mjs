@@ -1,8 +1,7 @@
 import fs from 'fs';
-//import { response } from 'express';
 import multer from 'multer';
 import { SingleFile } from "../db/Singlefile.model.mjs";
-//let message = "";
+
 
 export  async function singleFileUpload(req, res, next){
     try{

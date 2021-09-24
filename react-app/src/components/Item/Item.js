@@ -1,6 +1,7 @@
 import './Item.css';
 
 export default function Item({
+    id,
     filePath,
     type,
     productType
@@ -8,7 +9,7 @@ export default function Item({
 }){
     return(
        <div className="item">
-           <img src={filePath} className="item-image" />
+           <img src={filePath} className="item-image" alt="item-img"/>
            <span>{type}</span>
            <span>{productType}</span>
            <button >Delete from closet</button>
