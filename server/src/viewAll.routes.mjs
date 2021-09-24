@@ -12,12 +12,12 @@ viewAllRouter.get('/', async (req, res) => {
 
 
 // Get single item from the list
-productsRouter.get('/:id', async (req, res) => {
+viewAllRouter.get('/:id', async (req, res) => {
     res.send(await getProductsByType(req.params.id));
 });
 
 
 // Delete single item from the list
-productsRouter.delete('/:id', async (req, res) => {
+viewAllRouter.delete('/:id', async (req, res) => {
     res.send(await deleteItem(req.params.id));
 });
