@@ -12,6 +12,10 @@
 
 form{
     width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
  .container {
     margin-top: 300px;
@@ -25,15 +29,18 @@ form{
  }
 
  .container2{
-    margin: auto;
     width: 100%;
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .errorMsg{
     color: red;
-    font-size: 24px;
-    margin: 3px 0;
+    font-size: 28px;
+    margin:auto;
   }
   
   .imgPreview{
@@ -45,6 +52,7 @@ form{
     justify-content: center;
     text-align: center;
     color: antiquewhite;
+    border-radius: 5px;
   }
   
   .imgPreview input[type="file"]{
@@ -52,10 +60,13 @@ form{
   }
   
   .imgPreview .customFileUpload{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    font-size: 22px;
+    font-size: 30px;
     font-weight: 500;
-    padding: 6px 12px;
     cursor: pointer;
   }
   

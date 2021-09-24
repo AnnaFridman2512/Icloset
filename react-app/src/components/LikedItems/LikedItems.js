@@ -34,6 +34,15 @@ export default function LikedItems() {
         setCollections(data);
       });
   }, []);
+//   // Get one item
+//   useEffect(() => {
+//     fetch(`http://localhost:8080/likedItems/`)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         console.log("collection data", data);
+//         setCollections(data);
+//       });
+//   }, []);
 
   console.log("p", collections, currentIndex);
 

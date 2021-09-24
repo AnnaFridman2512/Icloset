@@ -8,6 +8,24 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: 10s;
+    animation: bgimg 30s forwards infinite ease-in-out;
+   
+}
+
+@keyframes bgimg{
+    0%{
+        background-image: url(../../Helpers/CarouselImage/1.jpg);
+    }
+    25%{
+        background-image: url(../../Helpers/CarouselImage/2.jpg);
+    }
+    50%{
+        background-image: url(../../Helpers/CarouselImage/3.jpg);
+    }
+    100%{
+        background-image: url(../../Helpers/CarouselImage/4.jpg);
+    }
 }
 
 .getStartedBtn {

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const singleFileSchema = new mongoose.Schema({
+export const singleFileSchema = new mongoose.Schema({
   fileName: {
     type: String,
     required: true
