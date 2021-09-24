@@ -10,6 +10,7 @@ const __dirname = path.resolve();
 import { usersRouter } from './src/users.routes.mjs';
 import { likedItemsRouter } from './src/likedItems.routes.mjs';
 import { addItemsRouter } from './src/addItems.routes.mjs';
+import { viewAllRouter } from './src/viewAll.routes.mjs';
 import { connect } from './db/connect.mjs';
 import { allItemsRouter } from './src/allItems.routes.mjs'
 
@@ -30,8 +31,9 @@ app.use('/api/addedItems', express.static(path.join(__dirname, 'addedItems')));
 app.use('/api/users', usersRouter);
 app.use('/api/likedItems', likedItemsRouter);
 // app.use('/api/collection', collectionRouter)
+app.use('/api/collection', collectionRouter);
 app.use('/api/addItems', addItemsRouter);
-app.use('/api/allItems', allItemsRouter);
+app.use('/api/viewAll', viewAllRouter);
 app.use(express.static('../react-app/build'));
 
 

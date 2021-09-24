@@ -1,0 +1,14 @@
+.item {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: fit-content;
+  }
+  
+  .item-image {
+    width: 100%;
+  }
+  

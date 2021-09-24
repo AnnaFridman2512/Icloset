@@ -7,6 +7,9 @@ export default function AddItems(){
     const [imgPreview, setImgPreview] = useState(null);
     const [fileTypeError, setFileTypeError] = useState(false);
     const [fileExistsError, setFileExistsError] = useState(false);
+    const [itemAddedMsg, setItemAddedMsg] = useState(false);
+    const [selectExists, setSelectExists] = useState(true);
+    const [selectRED, setSelectRED] = useState(false);
     const [type, setType] = useState('');//top bottom shoes else 
     const [productType, setProductType] = useState('');//top pants shorts dress skirt shoes
     const [topSelect, setTopSelect] = useState(false);
@@ -14,11 +17,13 @@ export default function AddItems(){
     const [shoesSelect, setShoesSelect] = useState(false);
     const [elseSelect, setElseSelect] = useState(false);
 
-
+    
 
     const handleTypechange = (e) => {
       setType(e.target.value);
       const type = e.target.value;
+      
+
       if(type === "top" ){
         setTopSelect(true);
         setBottomSelect(false);
@@ -44,28 +49,34 @@ export default function AddItems(){
 
     const handleProductTypechange = (e) => {
       setProductType(e.target.value)
-      
     }
 
-    const fileChangeHandler = (e) => {
+    const fileChangeHandler = (e) => {   
       setFileTypeError(false);//clear error message when new item added
       setFileExistsError(false);
+      setItemAddedMsg(false);  
+      setSelectExists(false);
+      setSelectRED(false);
 
       const selected = e.target.files[0];//The target property of the Event interface is a reference to the object onto which the event was dispatched.
                                           //.files[0] - Accessing the first selected file
       const allowedTypes =["image/png", "image/jpeg", "image/jpg"];
 
       if(selected && allowedTypes.includes(selected.type)){
-        let reader = new FileReader();
-        reader.onloadend = () =>{
+        let reader = new FileReader();//'FileReader' object lets web applications asynchronously read the contents of files
+        reader.onloadend = () =>{//'onloadend' event is fired when a request has completed, whether successfully (after load) or unsuccessfully (after abort or error).
+                                //This event is triggered each time the reading operation is completed
           setImgPreview(reader.result);//show the img that is selected
         }
-          reader.readAsDataURL(selected);
+          reader.readAsDataURL(selected);//Starts reading the contents of the specified Blob, once finished, the result attribute contains a data: URL representing the file's data
+                                        //The Blob object represents a blob, which is a file-like object of immutable, raw data
+                                                                              
         }else{
-          setFileTypeError(true);
+          setFileTypeError(true);//Show error msg
       }
 
        setFileData(selected);
+       
                              
        if(selected){
         let reader = new FileReader();
@@ -78,26 +89,58 @@ export default function AddItems(){
       }
       };
 
-     
-
+    
     const onSubmitHandler = (e) => {
         e.preventDefault();//prevent submit button default behavior
+        setSelectExists(true)
+        
          
     // Handle File Data from the state Before Sending
      const data = new FormData();//The FormData() constructor creates a new FormData object.
-     
+    
     data.append("file", fileData);//Adding a key/value pair to "data" using FormData.append:
     data.append("type", type);
     data.append("productType", productType);
 
 
+
+if(type !== "" && productType !== ""){
+
      fetch("http://localhost:8080/api/addItems", {
        method: "POST",
-       body: data,
-
+       body: data,   
    })
-     .then(res => res.status !== 201 ? setFileExistsError(true) : setFileExistsError(false))
-     };
+  
+     .then(res => {
+
+        if(res.status === 201){
+           setFileExistsError(false)
+           setItemAddedMsg(true)
+           setSelectRED(false)
+           setType("")
+           setProductType("")
+        }else{
+           setFileExistsError(true)
+           setItemAddedMsg(false)
+           setSelectRED(false)
+        }
+    })
+   }else{
+    setSelectRED(true)
+    setItemAddedMsg(false)
+   }
+  }
+
+    const clear = () =>{
+      setImgPreview(null)
+      setItemAddedMsg(false)
+      setFileTypeError(false)
+      setFileExistsError(false)
+      setSelectExists(true)
+      setSelectRED(false)
+      setType('');
+      setProductType('')
+    }
 
     return (
         
@@ -105,18 +148,22 @@ export default function AddItems(){
         <div className="container">
       <h1>Add items</h1>
       <form onSubmit={onSubmitHandler}>
+      {!selectExists && <p className="selectMsg">Please select type and product-type from dropdown menu</p>}
+      {selectRED && <p className="errorMsg">Please select type and product-type from dropdown menu</p>}
+      {imgPreview && (
+        <>
       <select value={type} onChange={handleTypechange} >
-                <option>-- select an option -- </option>
+                <option>Type</option>
                 <option>top</option>
                 <option>bottom</option>
                 <option>shoes</option>
                 <option>else</option>
             </select>                
-            <div>{type}</div>
 
 
+        
         <select value={productType} onChange={handleProductTypechange} >
-                <option>-- select an option -- </option>
+                <option>Product-type </option>
                 <option disabled={topSelect ? false : true}>top</option>
                 <option disabled={bottomSelect ? false : true} >pants</option>
                 <option disabled={bottomSelect ? false : true}>shorts</option>
@@ -124,11 +171,13 @@ export default function AddItems(){
                 <option disabled={elseSelect ? false : true}>dress</option>
                 <option disabled={shoesSelect ? false : true}>shoes</option>
             </select>                
-            <div>{productType}</div>
-            
+            </>
+      )}
         <div className="container2">
         {fileTypeError && <p className="errorMsg">File not supported</p>}
         {fileExistsError && <p className="errorMsg">Item already exists</p>}
+        {itemAddedMsg && <p className="addedMsg">Item added to closet</p>}
+        
       <div
        className="imgPreview"
        style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/contain `: "#131313"}} //if we choose am img- show preview, else show background color
@@ -143,10 +192,13 @@ export default function AddItems(){
       </div>
       {/*if imgPreview exists we render the button*/}
       {imgPreview && (
-        <button onClick={()=> setImgPreview(null)}>Select different item</button>
+        <>
+        <button onClick={clear}>Select different item</button>
+        <button type="submit" >Add to closet</button>
+        </>
       )}
     </div>
-        <button type="submit">Submit File to Backend</button>
+        
 
       </form>
     </div>
