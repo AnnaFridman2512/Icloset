@@ -11,6 +11,7 @@ import Nav from '../Nav/Nav.js'
 import AddItems from '../AddtIems/AddItems';
 //import MainComponent from '../MainComponent/MainComponent';
 //import LikedItems from '../LikedItems/LikedItems';
+import ViewAll from '../viewAll/ViewAll';
 import Login from '../Login/Login.js';
 import Footer from '../HomePage/Footer';
 
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path='/likedItems'>
               {/*<LikedItems />**/}
+            </Route>
+            <Route path='/view-all'>
+              <ViewAll />
             </Route>
             <Route path='/logIn'>
               <Login />

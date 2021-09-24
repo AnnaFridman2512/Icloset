@@ -28,6 +28,10 @@ export default function Nav() {
                 <FavoriteBorderOutlinedIcon/>
                 Liked Items
             </Link>
+            <Link to='/view-all'>
+                {/*<FavoriteBorderOutlinedIcon/>**/}
+                View all
+            </Link>
             
             <Link to='/logIn'>
                 <AccountCircleOutlinedIcon/>Log in
