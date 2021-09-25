@@ -22,7 +22,8 @@ app.use(express.urlencoded()); //Parse URL-encoded bodies
 
 app.use(cors());
 
-app.use('/api/addedItems', express.static(path.join(__dirname, 'addedItems')));
+app.use('/api/addedItems', express.static(path.join(__dirname, 'addedItems'))); //adding path to use at client side
+
 
 
 

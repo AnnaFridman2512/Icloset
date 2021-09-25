@@ -1,6 +1,7 @@
 import fs from 'fs';
 import multer from 'multer';
 import { SingleFile } from "../db/Singlefile.model.mjs";
+import { getItems } from './viewAll.service.mjs';
 
 
 export  async function singleFileUpload(req, res, next){
@@ -20,13 +21,16 @@ export  async function singleFileUpload(req, res, next){
             if(existingItem === null){
             file.save();//creating SingleFile if item doesn't exist
             res.status(201).send(`${file.fileName} Uploaded:) `);
+
          }else{
              existingItem = null;
              res.send(`${file.fileName} item already exists!`);
              fs.unlink(file.filePath, (err) => {
                  if (err) console.log('error');
              });
+
          }
+
         })
     }catch (error) {
         res.status(400).send(error.message);
@@ -54,7 +58,7 @@ const fileSizeFormatter = (bytes, decimal) => {
 
 const storage = multer.diskStorage({ //"diskStorage" is a multer function, it exepts an object with two values: 
     destination: (req, file, cb) => { //"destination" function is the first value.
-        cb(null, "addedItems"); //"destination" function runs the "cb" function. "cb" functions first parametter is an error, we set it to "null"
+        cb(null, 'addedItems'); //"destination" function runs the "cb" function. "cb" functions first parametter is an error, we set it to "null"
         //"cb"s second parameter is the path to the folder in which we want to store the pics
     },
     filename: (req, file, cb) => { //"filename"  function is the second value.

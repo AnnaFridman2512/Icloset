@@ -12,8 +12,15 @@ export default function Item( {
 }){
     
 const deleteFromCloset = _id =>{
-    console.log("deleted");
 
+     fetch(`/api/viewAll/${_id}`,{
+            method: 'DELETE',
+            header:{
+                'Accept':'application/json',
+                'Content-Type': 'application/json'
+            }
+
+    })
 }
 
     return(
@@ -24,7 +31,7 @@ const deleteFromCloset = _id =>{
           { /*<img src={filePath} className="item-image" alt="item-img"/>*/}
            {/*<span>{type}</span>*/}
            <span>{productType}</span>
-         {<button onClick={() => deleteFromCloset()}>Delete from closet</button>}
+         {<button onClick={() => deleteFromCloset(_id)}>Delete from closet</button>}
        </div>
     );
 }
