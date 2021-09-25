@@ -21,6 +21,7 @@ function App() {
     return(
       <Router>
         <ViewAllProvider>
+
       <>
           <Nav />
 
@@ -46,6 +47,7 @@ function App() {
          
  
       </>
+
       </ViewAllProvider>
     </Router>
     );
