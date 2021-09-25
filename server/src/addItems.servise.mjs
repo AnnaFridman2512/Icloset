@@ -1,34 +1,38 @@
 import fs from 'fs';
 import multer from 'multer';
-import { SingleFile } from "../db/Singlefile.model.mjs";
+import {
+    SingleFile
+} from "../db/Singlefile.model.mjs";
 
 
-export  async function singleFileUpload(req, res, next){
-    try{
-        
+export async function singleFileUpload(req, res, next) {
+    try {
+        console.log('req.file', req.file);
         const file = new SingleFile({
             fileName: req.file.originalname,
             filePath: req.file.path,
             fileType: req.file.mimetype,
-            fileSize: fileSizeFormatter(req.file.size, 2),//0.00
-            type:req.body.type,
-            productType:req.body.productType,
-            
-        })  
-        
-        await SingleFile.findOne({fileName: file.fileName}, function(err, existingItem){
-            if(existingItem === null){
-            file.save();//creating SingleFile if item doesn't exist
-            res.status(201).send(`${file.fileName} Uploaded:) `);
-         }else{
-             existingItem = null;
-             res.send(`${file.fileName} item already exists!`);
-             fs.unlink(file.filePath, (err) => {
-                 if (err) console.log('error');
-             });
-         }
+            fileSize: fileSizeFormatter(req.file.size, 2), //0.00
+            type: req.body.type,
+            productType: req.body.productType,
+
         })
-    }catch (error) {
+
+        await SingleFile.findOne({
+            fileName: file.fileName
+        }, function (err, existingItem) {
+            if (existingItem === null) {
+                file.save(); //creating SingleFile if item doesn't exist
+                res.status(201).send(`${file.fileName} Uploaded:) `);
+            } else {
+                existingItem = null;
+                res.send(`${file.fileName} item already exists!`);
+                fs.unlink(file.filePath, (err) => {
+                    if (err) console.log('error');
+                });
+            }
+        })
+    } catch (error) {
         res.status(400).send(error.message);
     }
 }
@@ -72,4 +76,8 @@ const checkIfExists = (req, file, cb) => {
     }
 }
 
-export const upload = multer({ storage: storage, fileFilter: filefilter, checkIfExists:checkIfExists }); //"storage"- tells multer where to save the files
+export const upload = multer({
+    storage: storage,
+    // fileFilter: filefilter,
+    // checkIfExists: checkIfExists
+}); //"storage"- tells multer where to save the files
