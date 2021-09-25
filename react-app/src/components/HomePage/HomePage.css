@@ -8,8 +8,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: 10s;
-    animation: bgimg 30s forwards infinite ease-in-out;
+    transition: 5s;
+    animation: bgimg 50s forwards infinite ease-in-out;
    
 }
 

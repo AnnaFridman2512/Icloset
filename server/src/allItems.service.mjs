@@ -21,4 +21,4 @@ const newCombination = [getRendomItem(findTop), getRendomItem(findButtom), getRe
     // console.log(newCollection)
 return newCombination
 }
-console.log(newCombination)
+// console.log(newCombination)

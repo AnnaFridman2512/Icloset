@@ -32,7 +32,6 @@ app.use('/api/addedItems', express.static(path.join(__dirname, 'addedItems'))); 
 app.use('/api/users', usersRouter);
 app.use('/api/likedItems', likedItemsRouter);
 // app.use('/api/collection', collectionRouter)
-app.use('/api/collection', collectionRouter);
 app.use('/api/addItems', addItemsRouter);
 app.use('/api/viewAll', viewAllRouter);
 app.use(express.static('../react-app/build'));
