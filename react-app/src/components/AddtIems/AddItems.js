@@ -150,7 +150,6 @@ if(type !== "" && productType !== ""){
         
       <div className="add-items">
         <div className="container">
-      <h1>Add items</h1>
       <form onSubmit={onSubmitHandler}>
       {!selectExists && <p className="selectMsg">Please select type and product-type from dropdown menu</p>}
       {selectRED && <p className="errorMsg">Please select type and product-type from dropdown menu</p>}
