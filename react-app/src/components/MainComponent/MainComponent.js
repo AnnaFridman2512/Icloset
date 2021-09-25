@@ -23,7 +23,7 @@ export default function MainComponent() {
     const [on, setOn] = useState(false)
     useEffect(() => {
         if (on)
-            fetch('/collection')
+            fetch('/api/viewAll')
                 .then(res => res.json())
                 .then(data => {
                     setCollection([...data])

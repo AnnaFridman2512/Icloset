@@ -4,6 +4,7 @@ import {useState} from 'react';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ControlPointOutlinedIcon from '@material-ui/icons/ControlPointOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+// import CheckroomIcon from '@mui/icons-material/Checkroom';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 
 
@@ -29,7 +30,7 @@ export default function Nav() {
                 Liked Items
             </Link>
             <Link to='/view-all'>
-                {/*<FavoriteBorderOutlinedIcon/>**/}
+                {/* <CheckroomIcon/> */}
                 View all
             </Link>
             

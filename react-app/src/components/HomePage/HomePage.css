@@ -58,7 +58,7 @@
     height: 500px; 
 }
 
-h1 {
+h1.header {
     color: black;
     font-family: 'Amatic SC', cursive;
     text-align: center;
