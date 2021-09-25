@@ -1,4 +1,6 @@
 .view-all{
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     height: 110vh;
     background-image: url(../../Helpers/CarouselImage/1.jpg);

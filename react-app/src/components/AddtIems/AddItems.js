@@ -1,9 +1,10 @@
 import './AddItems.css'; 
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+import { ViewAllContext } from '../viewAll/ViewAllContext.js';
 
 
 export default function AddItems(){
-    const [fileData, setFileData] = useState();
+    const [fileData, setFileData] = useState({});
     const [imgPreview, setImgPreview] = useState(null);
     const [fileTypeError, setFileTypeError] = useState(false);
     const [fileExistsError, setFileExistsError] = useState(false);
@@ -17,7 +18,7 @@ export default function AddItems(){
     const [shoesSelect, setShoesSelect] = useState(false);
     const [elseSelect, setElseSelect] = useState(false);
 
-    
+
 
     const handleTypechange = (e) => {
       setType(e.target.value);
@@ -119,6 +120,7 @@ if(type !== "" && productType !== ""){
            setSelectRED(false)
            setType("")
            setProductType("")
+
         }else{
            setFileExistsError(true)
            setItemAddedMsg(false)
@@ -142,11 +144,12 @@ if(type !== "" && productType !== ""){
       setProductType('')
     }
 
+
+
     return (
         
       <div className="add-items">
         <div className="container">
-      <h1>Add items</h1>
       <form onSubmit={onSubmitHandler}>
       {!selectExists && <p className="selectMsg">Please select type and product-type from dropdown menu</p>}
       {selectRED && <p className="errorMsg">Please select type and product-type from dropdown menu</p>}
