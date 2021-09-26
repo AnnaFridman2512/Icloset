@@ -1,9 +1,11 @@
 import './AddItems.css'; 
-import React, { useState, useContext} from "react";
+import React, { useState , useContext} from "react";
 import { ViewAllContext } from '../viewAll/ViewAllContext.js';
 
 
+
 export default function AddItems(){
+    const {getItems} = useContext(ViewAllContext); 
     const [fileData, setFileData] = useState({});
     const [imgPreview, setImgPreview] = useState(null);
     const [fileTypeError, setFileTypeError] = useState(false);
@@ -120,11 +122,13 @@ if(type !== "" && productType !== ""){
            setSelectRED(false)
            setType("")
            setProductType("")
+           getItems();
 
         }else{
            setFileExistsError(true)
            setItemAddedMsg(false)
            setSelectRED(false)
+           
         }
     })
    }else{
@@ -183,7 +187,7 @@ if(type !== "" && productType !== ""){
         
       <div
        className="imgPreview"
-       style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/contain `: "#131313"}} //if we choose am img- show preview, else show background color
+       style={{background: imgPreview ? `url("${imgPreview}") no-repeat center/contain `: /*`url('../../images/addItems-hanger-background.jpg')`*/`black`}} //if we choose am img- show preview, else show background color
        >
         {!imgPreview && (
           <>

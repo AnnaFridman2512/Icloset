@@ -35,6 +35,11 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   /* background-image: url('../../images/addItems-hanger-background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;*/
   }
 
   .selectMsg{

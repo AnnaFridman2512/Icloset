@@ -1,6 +1,6 @@
 import './Item.css';
-//import React, { useState } from "react";
-
+import React, {useContext } from "react";
+import { ViewAllContext } from '../viewAll/ViewAllContext.js';
 
 
 export default function Item( {
@@ -10,7 +10,7 @@ export default function Item( {
     productType
 
 }){
-    
+    const {getItems} = useContext(ViewAllContext); 
 const deleteFromCloset = _id =>{
 
      fetch(`/api/viewAll/${_id}`,{
@@ -19,18 +19,13 @@ const deleteFromCloset = _id =>{
                 'Accept':'application/json',
                 'Content-Type': 'application/json'
             }
-
     })
+    .then(getItems());
 }
 
     return(
        <div className="item">
-           {_id}
-           <br></br>
-           {filePath}
-          { /*<img src={filePath} className="item-image" alt="item-img"/>*/}
-           {/*<span>{type}</span>*/}
-           <span>{productType}</span>
+          <img src={`api/${filePath}`} className="item-image" alt="item-img"/>
          {<button onClick={() => deleteFromCloset(_id)}>Delete from closet</button>}
        </div>
     );

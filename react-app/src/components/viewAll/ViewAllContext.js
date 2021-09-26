@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback,useState} from 'react';
 
 
 
 export const ViewAllContext = React.createContext({
     items: [],//Before fetching the array is empty 
-    setItems: () => []
+    setItems: () => [],
+    getItems: ()=> []
 });
 
 
@@ -12,7 +13,7 @@ export default function ViewAllProvider({children}) {
 const [items, setItems] = useState([]);//At the begining we have an empty array of products
 
 
-useEffect(()=> {//What is written inside this function is going to be executed when the component is rendered
+const getItems = useCallback(()=> {//What is written inside this function is going to be executed when the component is rendered
     
     fetch('/api/viewAll')
     .then(response =>response.json())//After fetching take the response (that came as a stirng) json() will convert the string in-to an array of objects.
@@ -24,7 +25,8 @@ useEffect(()=> {//What is written inside this function is going to be executed w
     return (
         <ViewAllContext.Provider value={{
             items,
-            setItems
+            setItems,
+            getItems
         }}>
             {children}    
         </ViewAllContext.Provider>
