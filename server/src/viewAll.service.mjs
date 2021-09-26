@@ -28,4 +28,3 @@ export async function getItem(id) {
 export function deleteItem(id) {
     return SingleFile.findOneAndDelete({ _id: ObjectId(id) });
 }
-
