@@ -4,7 +4,7 @@ import {useState} from 'react';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ControlPointOutlinedIcon from '@material-ui/icons/ControlPointOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-//import { BiCloset } from "react-icons/bi"
+import { BiCloset } from "react-icons/bi"
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 
 
@@ -30,7 +30,7 @@ export default function Nav() {
                 Liked Items
             </Link>
             <Link to='/view-all'>
-           { /*<BiCloset size= '1.5em'/> */}
+            <BiCloset size= '1.5em'/> 
                 View all
             </Link>
             
