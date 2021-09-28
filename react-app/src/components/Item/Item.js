@@ -10,7 +10,7 @@ export default function Item( {
     productType
 
 }){
-    const {getItems} = useContext(ViewAllContext); 
+ const {getItems} = useContext(ViewAllContext); 
 const deleteFromCloset = _id =>{
 
      fetch(`/api/viewAll/${_id}`,{
