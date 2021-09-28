@@ -8,7 +8,6 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 export default function MainComponent() {
 
   const { items, getItems } = useContext(ViewAllContext);
-
   console.log("all items", items);
 
   const [combination, setCombination] = useState([]);
