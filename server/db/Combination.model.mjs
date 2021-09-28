@@ -1,17 +1,9 @@
 import mongoose from 'mongoose';
-import {singleFileSchema} from './Singlefile.model.mjs'
+const Schema = mongoose.Schema;
+
 
 const CombinationSchema = new mongoose.Schema({
-    combination: [
-        {
-            "typeof": {
-                type: String,
-                enum:["top", "butttom", 'shoes']
-            },
-            "productType": String,
-            "imageUrl": String
-        },
-    ]
+    combination: [{ type: Schema.Types.ObjectId, ref: 'SingleFile' }] //called populate() - reference documents in other collections (singlefile)
 });
 
 export const Combination = mongoose.model('Combination', CombinationSchema);

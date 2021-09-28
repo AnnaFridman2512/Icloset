@@ -1,12 +1,16 @@
 import './ViewAll.css'; 
-import React, {useContext } from "react";
+import React, {useContext, useEffect } from "react";
 import { ViewAllContext } from './ViewAllContext.js';
 import Item from '../Item/Item.js';
 
 
 export default function ViewAll(){
 
-  const {items} = useContext(ViewAllContext);
+  const {items, getItems} = useContext(ViewAllContext);
+  
+
+
+
   
 
 
