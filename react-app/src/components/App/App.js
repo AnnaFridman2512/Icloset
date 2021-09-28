@@ -12,6 +12,7 @@ import Login from "../Login/Login.js";
 import Footer from "../HomePage/Footer";
 import { useEffect, useContext } from "react";
 import { ViewAllContext } from '../viewAll/ViewAllContext';
+import MainComponent from "../MainComponent/MainComponent";
 
 
 
@@ -33,10 +34,12 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <HomePage />
-          {/*MainComponent is rendered in HomePage*/}
         </Route>
         <Route path="/addItems">
           <AddItems />
+        </Route>
+        <Route path="/mainComponent">
+          <MainComponent />
         </Route>
         <Route path="/likedItems">
           <LikedItems />
@@ -44,9 +47,9 @@ function App() {
         <Route path="/view-all">
           <ViewAll />
         </Route>
-        <Route path="/logIn">
+        {/* <Route path="/logIn">
           <Login />
-        </Route>
+        </Route> */}
       </Switch>
 
       <Footer />

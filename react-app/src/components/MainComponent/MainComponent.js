@@ -60,7 +60,7 @@ export default function MainComponent() {
   console.log("isLikedItem", isLikedItem);
 
   return (
-    <>
+    <div className='main'>
       <button className="findMeButton" onClick={getrandomCombination}>
         FIND ME SOMETHING !
       </button>
@@ -98,7 +98,7 @@ export default function MainComponent() {
             </button>
           </div>
       </div>
-    </>
+    </div>
 
     //         !items.length > 0         ?             // <button
     // className='findMeButton' onClick={() => setOn(true)}>FIND ME SOMETHING!

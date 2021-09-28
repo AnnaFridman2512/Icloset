@@ -6,6 +6,7 @@ import ControlPointOutlinedIcon from '@material-ui/icons/ControlPointOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import { BiCloset } from "react-icons/bi"
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+import { RiFindReplaceLine } from "react-icons/ri";
 
 
 
@@ -25,6 +26,10 @@ export default function Nav() {
             <ControlPointOutlinedIcon/>
                 Add Items
             </Link>
+            <Link to='/mainComponent'>
+            <RiFindReplaceLine size= '1.5em'/>
+                Finde me 
+            </Link>
             <Link to='/likedItems'>
                 <FavoriteBorderOutlinedIcon/>
                 Liked Items
@@ -33,10 +38,10 @@ export default function Nav() {
             <BiCloset size= '1.5em'/> 
                 View all
             </Link>
-            
+{/*             
             <Link to='/logIn'>
                 <AccountCircleOutlinedIcon/>Log in
-            </Link>
+            </Link> */}
             
         </div>
 

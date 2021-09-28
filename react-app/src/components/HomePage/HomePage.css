@@ -30,17 +30,19 @@
 
 .getStartedBtn {
     color: rgb(228, 181, 224);
-    ;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    justify-content: left;
+    /* justify-content: left; */
     background-color: black;
     height: 50px;
-    width: 180px;
+    width: 200px;
     text-decoration: none;
     font-size: 20px;
     margin: 35px;
+    padding: 20px;
+    align-self: center;
+    line-height: normal;
 }
 
 .container {
@@ -62,7 +64,7 @@ h1.header {
     color: black;
     font-family: 'Amatic SC', cursive;
     text-align: center;
-    font-size: 55px;
+    font-size: 70px;
     
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     white-space: nowrap; /* Keeps the content on a single line */
