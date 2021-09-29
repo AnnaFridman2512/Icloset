@@ -22,7 +22,7 @@ const getItems = useCallback(()=> {//What is written inside this function is goi
     
   }, []);
 
-  const combinationsList = useCallback(()=> { //create new array of all liked items(combination)
+  const combinationsList = useCallback(()=> { //fetch all liked items(combination) 
     fetch('/api/likedItems')
     .then(response =>response.json())//After fetching take the response (that came as a stirng) json() will convert the string in-to an array of objects.
     .then(c => setCombination(c))//Takes the items array of objects, that we got above and replaces the empty 'items' array with the one we got from fetch()  

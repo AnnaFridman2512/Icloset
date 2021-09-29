@@ -1,3 +1,4 @@
+import fs from 'fs';
 import Mongo from 'mongodb';
 import {SingleFile} from '../db/Singlefile.model.mjs';
 const {ObjectId} = Mongo;
@@ -25,6 +26,14 @@ export async function getItem(id) {
         .findOne({ _id: ObjectId(id) });
 }
 
+ function deleteFile(file){
+    fs.unlink(file.filePth, (err)=>{
+        if(err) console.log(err);
+    })
+}
+
+
 export function deleteItem(id) {
+
     return SingleFile.findOneAndDelete({ _id: ObjectId(id) });
 }

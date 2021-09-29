@@ -62,7 +62,7 @@ export default function MainComponent() {//Find me navbar link
   return (
     <div className='main'>
       <button className="findMeButton" onClick={getrandomCombination}>
-        FIND ME SOMETHING !
+       <span> FIND ME SOMETHING !</span>
       </button>
       <div className="main-component">
         <div className="new-combinatin">
@@ -84,17 +84,16 @@ export default function MainComponent() {//Find me navbar link
             >
 
               {isLikedItem === false ? (
-                <MdFavoriteBorder size="1.5em" />
+               <span><MdFavoriteBorder size="1.5em" /></span>
               ) : (
                 <MdFavorite size="1.5em" />
-              )}
-
+              )} 
             </button>
             <button
               className="findMeButton likeButton"
               onClick={getrandomCombination}
             >
-              <AutorenewIcon />
+             <span> <AutorenewIcon /> </span>
             </button>
           </div>
       </div>

@@ -26,7 +26,7 @@ const deleteFromCloset = _id =>{
     return(
        <div className="item">
           <img src={`api/${filePath}`} className="item-image" alt="item-img"/>
-         {<button onClick={() => deleteFromCloset(_id)}>Delete from closet</button>}
+         {<button onClick={() => deleteFromCloset(_id)}><span>Delete from closet</span></button>}
        </div>
     );
 }

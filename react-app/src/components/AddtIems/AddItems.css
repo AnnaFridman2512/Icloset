@@ -18,6 +18,7 @@ form{
     align-items: center;
 }
  .container {
+   padding: 0;
     margin-top: 300px;
     margin-bottom: 300px;
     width: 700px;
@@ -25,6 +26,7 @@ form{
     display: flex;
     flex-direction: column;
     border: 1px solid black;
+border-radius: 15px;
     background: rgba(255, 255, 255, 0.836);  
  }
 
@@ -44,7 +46,7 @@ form{
 
   .selectMsg{
     font-size: 20px;
-    margin: 10px;
+    margin: 10px 0 0 0;
   }
 
   .errorMsg{
@@ -74,7 +76,7 @@ form{
     justify-content: center;
     text-align: center;
     color: antiquewhite;
-    border-radius: 5px;
+    border-radius:15px;
   }
   
   .imgPreview input[type="file"]{
@@ -92,16 +94,82 @@ form{
     cursor: pointer;
   }
   
+  .customFileUpload p{
+    overflow: hidden;
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    animation: customFileUploadAnim 1.5s steps(25, end);
+  }
+
+  @keyframes customFileUploadAnim{
+    from { width: 0 }
+    to { width: 100% }
+  }
+
   button {
     border: none;
     border-radius: 10px;
     outline: none;
-    width: 100%;
+    width: 250px;
+    height: 40px;
     margin:10px 10px;
-    padding: 14px 10px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
     background: #eb5b8c;
     color: white;
-    font-size: 17px;
+    font-size: 90%;
     font-weight: 600;
     cursor: pointer;
+  }
+
+  button:hover{
+    width: 260px;
+    height: 50px;
+    margin-bottom: 0;
+  }
+
+
+ span:hover{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  animation: btnLetters 1s infinite;
+  }
+
+
+  @keyframes btnLetters {
+    from { color: #eb5b8c }
+    to {color: white}
+  }
+
+  .arrow{
+    margin: 10px;
+    position: relative;
+    border-right: 30px solid transparent;
+    border-left:30px solid transparent;
+    border-top: 20px solid  #eb5b8c;
+    animation:1.5s linear 1s infinite running moveArrow;
+  }
+  @keyframes moveArrow{
+    from{
+     top: -5px;
+     border-top: 20px solid transparent;
+      }
+    to{
+      top: 5px;
+      border-top: 20px solid  #eb5b8c;
+      }
+  }
+
+  select{
+    margin: 5px;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    text-align-last:center;
+  
+  }
+
+  select:hover{
+    border: 3px solid #e4b5e0;
   }

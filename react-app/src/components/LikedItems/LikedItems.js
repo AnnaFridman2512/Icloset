@@ -35,13 +35,22 @@ export default function LikedItems() {
   //     });
   // }, []);
 
-  const deleteBtn = (id) => {
-    // DELETE request using fetch inside useEffect React hook
-    fetch(`https://localhost:8080/api/${combination._id}`, {
+  const deleteCombination = (_id) => {     // DELETE request 
+    console.log('id', _id);
+    
+    fetch(`/api/likedItems/${_id}`, {
       method: "DELETE",
-    }).then(() => setCurrentIndex("Delete successful"));
-  };
-
+      header: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+    .then(setCombination(combination.filter(item => item._id !== _id)))
+    if (combination.length -1 == currentIndex ){
+           setCurrentIndex(currentIndex - 1)
+         }
+  }
+  
   console.log("p", combination, currentIndex);
 
   return (
@@ -63,11 +72,13 @@ export default function LikedItems() {
           <div className="center">
             {combination.length > 0 && (
               <CollectionCard
-                deleteBtn={deleteBtn}
+                deleteCombination={deleteCombination}
                 id={combination[currentIndex].id}
                 combination={combination[currentIndex].combination}
+                currentIndex={combination[currentIndex]}
               />
             )}
+            <p>{currentIndex}</p>
           </div>
 
           <div className="right">
