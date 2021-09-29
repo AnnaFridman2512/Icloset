@@ -82,15 +82,18 @@ h2 {
     align-self: flex-end;
 } */
 
-div button.findMeButton {
+div button.findMeButton,div button .likeButton{
     line-height: 100%;
     margin: 5px;
+    padding: 10px 10px;
     border-style: none;
+    display: flex;
+    justify-content:center;
+    align-items: center;
     background: #eb5b8c;
     /* border: solid 50px rgba(255, 255, 255, 0.192); */
-    width: 90%;
-    width: 300px;
-    height: 50px;
+    width:240px;
+    height: 40px;
     /* height: 25%; */
     border-radius: 10px;
     color: white;
@@ -99,10 +102,34 @@ div button.findMeButton {
     cursor: pointer;
 }
 
+.findMeButton:hover {
+  width: 260px;
+  height: 50px;
+  margin-bottom: 0;
+}
+
+
+ span:hover{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  animation: btnLetters 1s infinite;
+  }
+
+
+  @keyframes btnLetters {
+    from { color: #eb5b8c }
+    to {color: white}
+  }
+
 div button.findMeButton.likeButton {
     line-height: 100%;
     font-size: 90%;
     height: 25%;
-  
-    width: 90%;
+    width:240px;
+    height: 40px;
+}
+
+div button.findMeButton.likeButton:hover{
+  width: 260px;
+  height: 50px;
+  margin-bottom: 0;
 }

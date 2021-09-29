@@ -77,7 +77,7 @@ const checkIfExists = (req, file, cb) => {
 }
 
 export const upload = multer({
-    storage: storage,
-    // fileFilter: filefilter,
-    // checkIfExists: checkIfExists
-}); //"storage"- tells multer where to save the files
+    storage: storage,//"storage"- tells multer where to save the files
+     fileFilter: filefilter,
+    checkIfExists: checkIfExists
+}); 

@@ -155,7 +155,11 @@ if(type !== "" && productType !== ""){
       <div className="add-items">
         <div className="container">
       <form onSubmit={onSubmitHandler}>
-      {!selectExists && <p className="selectMsg">Please select type and product-type from dropdown menu</p>}
+      {!selectExists && <>
+       <p className="selectMsg">Please select type and product-type from dropdown menu</p>       
+       <div className="arrow"></div>
+       </>
+       }
       {selectRED && <p className="errorMsg">Please select type and product-type from dropdown menu</p>}
       {imgPreview && (
         <>
@@ -191,7 +195,7 @@ if(type !== "" && productType !== ""){
        >
         {!imgPreview && (
           <>
-          <label htmlFor="fileUpload" className="customFileUpload">Click to add item :)</label>
+          <label htmlFor="fileUpload" className="customFileUpload"><p>Click to add item :)</p></label>
           <input type="file" id="fileUpload" onChange={fileChangeHandler} />
           <span>(jpg, jpeg or png)</span>
           </>
@@ -200,8 +204,8 @@ if(type !== "" && productType !== ""){
       {/*if imgPreview exists we render the button*/}
       {imgPreview && (
         <>
-        <button onClick={clear}>Select different item</button>
-        <button type="submit" >Add to closet</button>
+        <button onClick={clear}><span>Select different item</span></button>
+        <button type="submit" ><span>Add to closet</span></button>
         </>
       )}
     </div>
@@ -213,4 +217,4 @@ if(type !== "" && productType !== ""){
                                                                  
     );
 
-    }                                     
+    }           

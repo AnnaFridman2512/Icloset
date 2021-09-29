@@ -1,7 +1,7 @@
 import './Nav.css';
 import {Link} from "react-router-dom";
 import {useState} from 'react';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+//import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ControlPointOutlinedIcon from '@material-ui/icons/ControlPointOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import { BiCloset } from "react-icons/bi"
@@ -35,7 +35,7 @@ export default function Nav() {
                 Liked Items
             </Link>
             <Link to='/view-all'>
-            <BiCloset size= '1.5em'/> 
+                <BiCloset size= '1.5em'/> 
                 View all
             </Link>
 {/*             
