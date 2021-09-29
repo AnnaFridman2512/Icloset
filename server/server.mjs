@@ -12,7 +12,6 @@ import { likedItemsRouter } from './src/likedItems.routes.mjs';
 import { addItemsRouter } from './src/addItems.routes.mjs';
 import { viewAllRouter } from './src/viewAll.routes.mjs';
 import { connect } from './db/connect.mjs';
-import { allItemsRouter } from './src/allItems.routes.mjs'
 
 
 const app = express();

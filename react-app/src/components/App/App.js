@@ -1,57 +1,59 @@
-import './App.css';
-import { 
-  BrowserRouter as Router,
-  Switch,
-  Route,} from 'react-router-dom'
-import React from 'react';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
 
-import ViewAllProvider from '../viewAll/ViewAllContext.js';
-import HomePage from '../HomePage/HomePage';
-import Nav from '../Nav/Nav.js'
-import AddItems from '../AddtIems/AddItems';
-//import MainComponent from '../MainComponent/MainComponent';
-//import LikedItems from '../LikedItems/LikedItems';
-import ViewAll from '../viewAll/ViewAll';
-import Login from '../Login/Login.js';
-import Footer from '../HomePage/Footer';
+import HomePage from "../HomePage/HomePage";
+import Nav from "../Nav/Nav.js";
+import AddItems from "../AddtIems/AddItems";
+import LikedItems from '../LikedItems/LikedItems';
+import ViewAll from "../viewAll/ViewAll";
+//import Login from "../Login/Login.js";
+import Footer from "../HomePage/Footer";
+import { useEffect, useContext } from "react";
+import { ViewAllContext } from '../viewAll/ViewAllContext';
+import MainComponent from "../MainComponent/MainComponent";
+
 
 
 function App() {
-  
-    return(
-      <Router>
-        <ViewAllProvider>
 
-      <>
-          <Nav />
+    const {items, getItems, combinationsList} = useContext(ViewAllContext);
 
-          <Switch>
-            <Route path='/' exact >
-              <HomePage />{/*MainComponent is rendered in HomePage*/}
-            </Route>
-            <Route path="/addItems">
-              <AddItems />
-            </Route>
-            <Route path='/likedItems'>
-              {/*<LikedItems />**/}
-            </Route>
-            <Route path='/view-all'>
-              <ViewAll />
-            </Route>
-            <Route path='/logIn'>
-              <Login />
-            </Route>
-          </Switch>
+    useEffect(() => {
+        getItems()
+        combinationsList()
+      }, [])
+    
+    
 
-          <Footer />
-         
- 
-      </>
+  return (
+    <Router>
+      <Nav />
 
-      </ViewAllProvider>
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Route path="/addItems">
+          <AddItems />
+        </Route>
+        <Route path="/mainComponent">
+          <MainComponent />
+        </Route>
+        <Route path="/likedItems">
+          <LikedItems />
+        </Route>
+        <Route path="/view-all">
+          <ViewAll />
+        </Route>
+        {/* <Route path="/logIn">
+          <Login />
+        </Route> */}
+      </Switch>
+
+      <Footer />
     </Router>
-    );
+  );
 }
 
 export default App;
-

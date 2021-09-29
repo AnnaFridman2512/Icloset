@@ -15,14 +15,22 @@
 
 
   }
+  img{
+    width:80%;
+    height:80%;
+    align-self: center;
+    justify-self: center;
+    object-fit: contain
+
+  }
   
 .liked-shoes {
-  grid-column: 2 / 3; 
-  grid-row: 1 / 2;
-}
-.liked-buttom {
   grid-column: 1 / 2; 
   grid-row: 2 / 3;
+}
+.liked-bottom {
+  grid-column: 2 / 3; 
+  grid-row: 1 / 3;
 }
 .liked-top {
   grid-column: 1 / 2; 

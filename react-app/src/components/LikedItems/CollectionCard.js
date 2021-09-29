@@ -10,12 +10,14 @@ function CollectionCard({ combination, setCollection, id , deleteBtn}) {
     <>
       <div className="collection-card">
         <div className="Collection_Item">
-          {combination.map(({ productType, imageUrl, type }) => (
+          {combination.map(({ productType, filePath, type }) => (
             <img
               key={type}
               className={`liked-${type}`}
-              src={imageUrl}
+              src={'http://localhost:8080/api/'+filePath}
               alt={productType}
+              // width='70%'
+              // height='70%'
             />
           ))}
         </div>
