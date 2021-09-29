@@ -88,7 +88,6 @@ export default function MainComponent() {
               ) : (
                 <MdFavorite size="1.5em" />
               )}
-              {/* <FavoriteBorderOutlinedIcon/> */}
             </button>
             <button
               className="findMeButton likeButton"
