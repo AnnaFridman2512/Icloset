@@ -78,7 +78,7 @@ export default function LikedItems() {
                 currentIndex={combination[currentIndex]}
               />
             )}
-            <p>{currentIndex}</p>
+            {/* <p>{currentIndex}</p> */}
           </div>
 
           <div className="right">

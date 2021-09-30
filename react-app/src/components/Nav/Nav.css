@@ -40,6 +40,8 @@ a:hover {
     border: none;
     background: none;
     color: rgb(228, 181, 224);
+    width: 100%;
+    justify-content: center;
 }
 @media (max-width: 760px) {
     .navbar {
@@ -82,7 +84,7 @@ a:hover {
         font-size: 140%;
         display: flex;
         flex-wrap: nowrap;
-        position: absolute;
+        /* position: absolute; */
     }
 
 }
