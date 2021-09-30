@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 import { ViewAllContext } from "../viewAll/ViewAllContext";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { BiChevronsUp } from "react-icons/bi";
 
 export default function MainComponent() {
   //Find me navbar link
@@ -14,7 +15,8 @@ export default function MainComponent() {
   const context = useContext(ViewAllContext);
 
   const [isLikedItem, setIsLikedItem] = useState(false);
-  
+  const [showResults, setShowResults] = useState(false);
+  const [findBtn, setFindBtn] = useState(false);
 
   const getRandom = (array) => {
     return array[Math.floor(Math.random() * array.length)]; //A general function that gets an array and knows how to random an item
@@ -44,14 +46,16 @@ export default function MainComponent() {
       setCombination(threeItemsComb);
     }
     setIsLikedItem(false); // Resets the liked item button to false
+    setShowResults(true); // switch the message with the images
+    setFindBtn(true); // change the text on the "Find Me" button
 
     // const findElse = items.filter(item => item.type === "else"); const theElse =
     // findElse[Math.floor(Math.random() * findElse.length)];
-    // return setCombination([theTop, theBottom, theShoes]); 
-    
-    //Instead of duplicating this code for each category I created a global getRandom function 
-    // and a forEach function that goes over all the items 
-    // and produces an object whose "key" is the category (top,bottom,shoes,else) 
+    // return setCombination([theTop, theBottom, theShoes]);
+
+    //Instead of duplicating this code for each category I created a global getRandom function
+    // and a forEach function that goes over all the items
+    // and produces an object whose "key" is the category (top,bottom,shoes,else)
     //and the value is an array of all the items from the same category.
   };
   console.log("combin", context.combination);
@@ -70,21 +74,30 @@ export default function MainComponent() {
         context.setCombination([...context.combination, data]);
       });
 
-    // const favoriteItemsList = [...favorites, combination];
-    // favorites;
-    // setFavorites(favoriteItemsList);
     setIsLikedItem(true); //change the liked item button state to true (The heart icon is marked)
   };
-
-
 
   return (
     <div className="main">
       <button className="findMeButton" onClick={getrandomCombination}>
-        <span> FIND ME SOMETHING! </span>
+        <span>
+          {findBtn ? (
+            <div>
+              FIND ME SOMETHING ELSE <AutorenewIcon size="1.5em" />
+            </div>
+          ) : (
+            "FIND ME SOMETHING!"
+          )}
+        </span>
       </button>
       <div className="main-component">
         <div className="new-combinatin">
+          {showResults ? null : (
+            <div className="results">
+              <BiChevronsUp size="1.5em" /> Click on <br /> "FIND ME SOMETHING!"
+              <br /> button to see the outfit
+            </div>
+          )}
           {items.length > 0 &&
             combination.map(({ productType, _id, type, filePath }) => (
               <img
@@ -108,40 +121,9 @@ export default function MainComponent() {
               <MdFavorite size="1.5em" />
             )}
           </button>
-          <button
-            className="findMeButton likeButton"
-            onClick={getrandomCombination}
-          >
-            <span>
-            
-              <AutorenewIcon />
-            </span>
-          </button>
+         
         </div>
       </div>
     </div>
-
-    //         !items.length > 0         ?             // <button
-    // className='findMeButton' onClick={() => setOn(true)}>FIND ME SOMETHING!
-    // </button>             < button className = 'findMeButton' > FIND ME SOMETHING
-    // !</button>             : <div
-    // className={combination[0].productType !== 'dress'                     ?
-    // 'main-component'                     : 'main-component-dress'}>
-    //       <img                         className={combination[0].productType !==
-    // 'dress'                         ? "first"                         : 'dress'}
-    //                        src={items[0].imageUrl}
-    // alt="top item "/> {combination[0].productType !== 'dress'
-    //     ? <img className="third" src={combination[1].imageUrl} alt="buttom item
-    // "/>                         : null }                     <img
-    // className='second' src={combination[2].imageUrl} alt="shoes item "/>
-    //            <div className="buttons">                         <button
-    // className='findMeButton likeButton'>
-    // <FavoriteBorderOutlinedIcon/>                         </button>
-    //           {/* <button className='findMeButton likeButton' onClick={() =>
-    // setOn(true)}><AutorenewIcon /> </button> */}                         <button
-    // className='findMeButton likeButton'
-    // onClick={getrandomCombination}><AutorenewIcon/></button>
-    //    <button className='findMeButton likeButton'><AutorenewIcon/></button>
-    //                </div>                 </div>     } < />
   );
 }
