@@ -38,7 +38,6 @@ export default function LikedItems() {
   const deleteCombination = (_id) => {
     // DELETE request
     console.log("id", _id);
-
     fetch(`/api/likedItems/${_id}`, {
       method: "DELETE",
       header: {
@@ -49,6 +48,13 @@ export default function LikedItems() {
     if (combination.length - 1 == currentIndex) {
       setCurrentIndex(currentIndex - 1);
     }
+
+    // const confirmBox = window.confirm(
+    //   "Do you really want to delete this Combination?"
+    // );
+    // if (confirmBox === true) {
+
+    // }
   };
 
   console.log("p", combination, currentIndex);
