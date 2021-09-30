@@ -44,6 +44,10 @@ a:hover {
     width: 100%;
     justify-content: center;
 }
+button:focus{
+    outline: none;
+}
+
 @media (max-width: 760px) {
     .navbar {
         display: flex;
