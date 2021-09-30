@@ -55,9 +55,11 @@
   grid-column: 1 / 2; 
   grid-row: 1 / 2;
 }
-.dress {
-  grid-column: 1 / 2; 
+.else {
+  grid-column: 2 / 3; 
   grid-row: 1 / 3;
+  width: 90%;
+  height: 90%;
 }
 
 

@@ -33,13 +33,24 @@ export default function MainComponent() {//Find me navbar link
     const theTop = getRandom(arrangeItems.top); //Calling getRandom function and passing into it an array (top, bottom, shoes)
     const theBottom = getRandom(arrangeItems.bottom);
     const theShoes = getRandom(arrangeItems.shoes);
-    // const thedress = getRandom(arrangeItems.else);
+    const thedress = getRandom(arrangeItems.else);
+
+    const getDressComb = [thedress, theShoes]
+    const threeItemsComb = [theTop, theBottom, theShoes]
+    const randomProduct = getRandom(items).productType
+
+    if (randomProduct == 'dress'){
+      setCombination(getDressComb)
+    } else {
+      setCombination(threeItemsComb)
+    }
+
 
     // const findElse = items.filter(item => item.type === "else"); const theElse =
     // findElse[Math.floor(Math.random() * findElse.length)];
 
-
-    return setCombination([theTop, theBottom, theShoes]); //create new combination and set it to combination state
+  
+    // return setCombination([theTop, theBottom, theShoes]); //create new combination and set it to combination state
   };
   console.log("combin", context.combination);
 
