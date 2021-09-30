@@ -7,7 +7,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/**.view-all-constainer{
+    width: 100%;
+    height: fit-content;
+    background: transparent;
+    overflow: hidden;
+}**/

@@ -13,12 +13,14 @@ export default function ViewAll(){
 
  <div className="view-all">
 
+   {/*<div className="view-all-constainer">*/}
+
         {items.length > 0 //if 'items' array is not empty (after fetch filled the array)
         ? items.map(item => <Item key={item.filePath} {...item} />)  //...product - pass all elements of iterableObj as arguments to function
-                                                               //key -> some value that is uniqe fo each product, in this case its the id
-                                                               //onAddToCart is the function that adds to cart on click
-        :"Loading..."}
-  </div>  
+                                                               //key -> some value that is uniqe fo each product, in this case its the id                                                               //onAddToCart is the function that adds to cart on click
+        :"Closet is smpty"}
+        </div>
+  //</div>  
                                                                  
     );
 

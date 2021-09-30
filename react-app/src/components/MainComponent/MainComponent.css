@@ -82,7 +82,7 @@ h2 {
     align-self: flex-end;
 } */
 
-div button.findMeButton,div button .likeButton{
+.findMeButton,.likeButton{
     line-height: 100%;
     margin: 5px;
     padding: 10px 10px;
