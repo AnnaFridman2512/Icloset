@@ -7,7 +7,7 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 export default function MainComponent() {
   //Find me navbar link
 
-  const { items, getItems } = useContext(ViewAllContext);
+  const { items } = useContext(ViewAllContext);
   console.log("all items", items);
 
   const [combination, setCombination] = useState([]);
@@ -38,7 +38,7 @@ export default function MainComponent() {
     const getDressComb = [thedress, theShoes]; //dress combination
     const threeItemsComb = [theTop, theBottom, theShoes]; //ather combination
     const randomProduct = getRandom(items).productType; //get a random item and make a condition if it is a dress or not
-    if (randomProduct == "dress") {
+    if (randomProduct === "dress") {
       setCombination(getDressComb);
     } else {
       setCombination(threeItemsComb);

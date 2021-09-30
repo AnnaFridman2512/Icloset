@@ -1,4 +1,4 @@
-import './Item.css';
+import './item.css';
 import React, {useContext } from "react";
 import { ViewAllContext } from '../viewAll/ViewAllContext.js';
 

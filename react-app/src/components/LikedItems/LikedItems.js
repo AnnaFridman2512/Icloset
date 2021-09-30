@@ -57,7 +57,7 @@ export default function LikedItems() {
     // }
   };
 
-  console.log("p", combination, currentIndex);
+  //console.log("p", combination, currentIndex);
 
   return (
     <div className="liked-items">

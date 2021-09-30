@@ -28,7 +28,6 @@
     /* width: 35%;
     height: 70%;
     border-radius: 5px; */
-    border-radius: 5px;
     /* background: white;
     height: 100%;
     width: 80%; */
@@ -107,7 +106,7 @@ h2 {
 .findMeButton:hover {
   width: 260px;
   height: 50px;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 
@@ -133,5 +132,5 @@ div button.findMeButton.likeButton {
 div button.findMeButton.likeButton:hover{
   width: 260px;
   height: 50px;
-  margin-bottom: 0;
+  margin: 0;
 }

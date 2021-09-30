@@ -160,7 +160,7 @@ if(type !== "" && productType !== ""){
        <div className="arrow"></div>
        </>
        }
-      {selectRED && <p className="errorMsg">Please select type and product-type from dropdown menu</p>}
+      {selectRED && <p className="errorMsg">Please select type product-type from dropdown menu</p>}
       {imgPreview && (
         <>
       <select value={type} onChange={handleTypechange} >
@@ -195,8 +195,10 @@ if(type !== "" && productType !== ""){
        >
         {!imgPreview && (
           <>
+  
           <label htmlFor="fileUpload" className="customFileUpload"><p>Click to add item :)</p></label>
           <input type="file" id="fileUpload" onChange={fileChangeHandler} />
+          
           <span>(jpg, jpeg or png)</span>
           </>
         )}
