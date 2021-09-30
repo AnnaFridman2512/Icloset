@@ -14,7 +14,7 @@ export default function MainComponent() {
   const context = useContext(ViewAllContext);
 
   const [isLikedItem, setIsLikedItem] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  
 
   const getRandom = (array) => {
     return array[Math.floor(Math.random() * array.length)]; //A general function that gets an array and knows how to random an item
@@ -43,9 +43,16 @@ export default function MainComponent() {
     } else {
       setCombination(threeItemsComb);
     }
+    setIsLikedItem(false); // Resets the liked item button to false
+
     // const findElse = items.filter(item => item.type === "else"); const theElse =
     // findElse[Math.floor(Math.random() * findElse.length)];
-    // return setCombination([theTop, theBottom, theShoes]); //create new combination and set it to combination state
+    // return setCombination([theTop, theBottom, theShoes]); 
+    
+    //Instead of duplicating this code for each category I created a global getRandom function 
+    // and a forEach function that goes over all the items 
+    // and produces an object whose "key" is the category (top,bottom,shoes,else) 
+    //and the value is an array of all the items from the same category.
   };
   console.log("combin", context.combination);
 
@@ -66,10 +73,10 @@ export default function MainComponent() {
     // const favoriteItemsList = [...favorites, combination];
     // favorites;
     // setFavorites(favoriteItemsList);
-    // setIsLikedItem(true);
+    setIsLikedItem(true); //change the liked item button state to true (The heart icon is marked)
   };
 
-  console.log("isLikedItem", isLikedItem);
+
 
   return (
     <div className="main">
