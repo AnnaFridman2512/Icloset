@@ -4,8 +4,8 @@ import AutorenewIcon from "@material-ui/icons/Autorenew";
 import { ViewAllContext } from "../viewAll/ViewAllContext";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
-
-export default function MainComponent() {//Find me navbar link
+export default function MainComponent() {
+  //Find me navbar link
 
   const { items, getItems } = useContext(ViewAllContext);
   console.log("all items", items);
@@ -14,7 +14,7 @@ export default function MainComponent() {//Find me navbar link
   const context = useContext(ViewAllContext);
 
   const [isLikedItem, setIsLikedItem] = useState(false);
-  const [favorites, setFavorites] = useState([]);
+  
 
   const getRandom = (array) => {
     return array[Math.floor(Math.random() * array.length)]; //A general function that gets an array and knows how to random an item
@@ -33,19 +33,36 @@ export default function MainComponent() {//Find me navbar link
     const theTop = getRandom(arrangeItems.top); //Calling getRandom function and passing into it an array (top, bottom, shoes)
     const theBottom = getRandom(arrangeItems.bottom);
     const theShoes = getRandom(arrangeItems.shoes);
+    const thedress = getRandom(arrangeItems.else);
+
+    const getDressComb = [thedress, theShoes]; //dress combination
+    const threeItemsComb = [theTop, theBottom, theShoes]; //ather combination
+    const randomProduct = getRandom(items).productType; //get a random item and make a condition if it is a dress or not
+    if (randomProduct == "dress") {
+      setCombination(getDressComb);
+    } else {
+      setCombination(threeItemsComb);
+    }
+    setIsLikedItem(false); // Resets the liked item button to false
 
     // const findElse = items.filter(item => item.type === "else"); const theElse =
     // findElse[Math.floor(Math.random() * findElse.length)];
-
-    return setCombination([theTop, theBottom, theShoes]); //create new combination and set it to combination state
+    // return setCombination([theTop, theBottom, theShoes]); 
+    
+    //Instead of duplicating this code for each category I created a global getRandom function 
+    // and a forEach function that goes over all the items 
+    // and produces an object whose "key" is the category (top,bottom,shoes,else) 
+    //and the value is an array of all the items from the same category.
   };
   console.log("combin", context.combination);
 
   const addlikedItem = (combination) => {
-      // console.log("combination", combination.map((c) => c._id));
-      fetch("/api/likedItems", {
+    // console.log("combination", combination.map((c) => c._id));
+    fetch("/api/likedItems", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(combination.map((c) => c._id)),
     })
       .then((res) => res.json())
@@ -53,16 +70,18 @@ export default function MainComponent() {//Find me navbar link
         context.setCombination([...context.combination, data]);
       });
 
-    // const favoriteItemsList = [...favorites, combination]; favorites
-    // setFavorites(favoriteItemsList); setIsLikedItem(true);
+    // const favoriteItemsList = [...favorites, combination];
+    // favorites;
+    // setFavorites(favoriteItemsList);
+    setIsLikedItem(true); //change the liked item button state to true (The heart icon is marked)
   };
 
-  console.log("isLikedItem", isLikedItem);
+
 
   return (
-    <div className='main'>
+    <div className="main">
       <button className="findMeButton" onClick={getrandomCombination}>
-       <span> FIND ME SOMETHING !</span>
+        <span> FIND ME SOMETHING! </span>
       </button>
       <div className="main-component">
         <div className="new-combinatin">
@@ -75,27 +94,30 @@ export default function MainComponent() {//Find me navbar link
                 alt={productType}
               />
             ))}
-         
         </div>
         <div className="buttons">
-            <button
-              className="findMeButton likeButton"
-              onClick={() => addlikedItem(combination)}
-            >
-
-              {isLikedItem === false ? (
-               <span><MdFavoriteBorder size="1.5em" /></span>
-              ) : (
-                <MdFavorite size="1.5em" />
-              )} 
-            </button>
-            <button
-              className="findMeButton likeButton"
-              onClick={getrandomCombination}
-            >
-             <span> <AutorenewIcon /> </span>
-            </button>
-          </div>
+          <button
+            className="findMeButton likeButton"
+            onClick={() => addlikedItem(combination)}
+          >
+            {isLikedItem === false ? (
+              <span>
+                <MdFavoriteBorder size="1.5em" />
+              </span>
+            ) : (
+              <MdFavorite size="1.5em" />
+            )}
+          </button>
+          <button
+            className="findMeButton likeButton"
+            onClick={getrandomCombination}
+          >
+            <span>
+            
+              <AutorenewIcon />
+            </span>
+          </button>
+        </div>
       </div>
     </div>
 
