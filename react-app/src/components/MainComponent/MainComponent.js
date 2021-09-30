@@ -4,8 +4,8 @@ import AutorenewIcon from "@material-ui/icons/Autorenew";
 import { ViewAllContext } from "../viewAll/ViewAllContext";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
-
-export default function MainComponent() {//Find me navbar link
+export default function MainComponent() {
+  //Find me navbar link
 
   const { items, getItems } = useContext(ViewAllContext);
   console.log("all items", items);
@@ -35,30 +35,27 @@ export default function MainComponent() {//Find me navbar link
     const theShoes = getRandom(arrangeItems.shoes);
     const thedress = getRandom(arrangeItems.else);
 
-    const getDressComb = [thedress, theShoes]
-    const threeItemsComb = [theTop, theBottom, theShoes]
-    const randomProduct = getRandom(items).productType
-
-    if (randomProduct == 'dress'){
-      setCombination(getDressComb)
+    const getDressComb = [thedress, theShoes]; //dress combination
+    const threeItemsComb = [theTop, theBottom, theShoes]; //ather combination
+    const randomProduct = getRandom(items).productType; //get a random item and make a condition if it is a dress or not
+    if (randomProduct == "dress") {
+      setCombination(getDressComb);
     } else {
-      setCombination(threeItemsComb)
+      setCombination(threeItemsComb);
     }
-
-
     // const findElse = items.filter(item => item.type === "else"); const theElse =
     // findElse[Math.floor(Math.random() * findElse.length)];
-
-  
     // return setCombination([theTop, theBottom, theShoes]); //create new combination and set it to combination state
   };
   console.log("combin", context.combination);
 
   const addlikedItem = (combination) => {
-      // console.log("combination", combination.map((c) => c._id));
-      fetch("/api/likedItems", {
+    // console.log("combination", combination.map((c) => c._id));
+    fetch("/api/likedItems", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(combination.map((c) => c._id)),
     })
       .then((res) => res.json())
@@ -66,16 +63,18 @@ export default function MainComponent() {//Find me navbar link
         context.setCombination([...context.combination, data]);
       });
 
-    // const favoriteItemsList = [...favorites, combination]; favorites
-    // setFavorites(favoriteItemsList); setIsLikedItem(true);
+    // const favoriteItemsList = [...favorites, combination];
+    // favorites;
+    // setFavorites(favoriteItemsList);
+    // setIsLikedItem(true);
   };
 
   console.log("isLikedItem", isLikedItem);
 
   return (
-    <div className='main'>
+    <div className="main">
       <button className="findMeButton" onClick={getrandomCombination}>
-       <span> FIND ME SOMETHING !</span>
+        <span> FIND ME SOMETHING! </span>
       </button>
       <div className="main-component">
         <div className="new-combinatin">
@@ -88,27 +87,30 @@ export default function MainComponent() {//Find me navbar link
                 alt={productType}
               />
             ))}
-         
         </div>
         <div className="buttons">
-            <button
-              className="findMeButton likeButton"
-              onClick={() => addlikedItem(combination)}
-            >
-
-              {isLikedItem === false ? (
-               <span><MdFavoriteBorder size="1.5em" /></span>
-              ) : (
-                <MdFavorite size="1.5em" />
-              )} 
-            </button>
-            <button
-              className="findMeButton likeButton"
-              onClick={getrandomCombination}
-            >
-             <span> <AutorenewIcon /> </span>
-            </button>
-          </div>
+          <button
+            className="findMeButton likeButton"
+            onClick={() => addlikedItem(combination)}
+          >
+            {isLikedItem === false ? (
+              <span>
+                <MdFavoriteBorder size="1.5em" />
+              </span>
+            ) : (
+              <MdFavorite size="1.5em" />
+            )}
+          </button>
+          <button
+            className="findMeButton likeButton"
+            onClick={getrandomCombination}
+          >
+            <span>
+            
+              <AutorenewIcon />
+            </span>
+          </button>
+        </div>
       </div>
     </div>
 
