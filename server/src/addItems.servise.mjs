@@ -6,7 +6,7 @@ import { getItems } from './viewAll.service.mjs';
 
 export async function singleFileUpload(req, res, next) {
     try {
-        console.log('req.file', req.file);
+        //console.log('req.file', req.file);
         const file = new SingleFile({
             fileName: req.file.originalname,
             filePath: req.file.path,

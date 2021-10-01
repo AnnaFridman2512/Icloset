@@ -21,19 +21,19 @@ export function getItems(/**filter={}*/){//get all items with filter by "type" o
     //.paginate(query, { page, limit });
 }
 
-export async function getItem(id) {
+export function getItem(id) {
     return SingleFile
         .findOne({ _id: ObjectId(id) });
 }
-
  function deleteFile(file){
-    fs.unlink(file.filePth, (err)=>{
+    fs.unlink(`../${file.path}`, (err)=>{
         if(err) console.log(err);
     })
 }
 
 
-export function deleteItem(id) {
-
+export async function deleteItem(id) {
+    //const file = await getItem(id);
+    //deleteFile(file);
     return SingleFile.findOneAndDelete({ _id: ObjectId(id) });
 }
