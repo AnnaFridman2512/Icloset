@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
 //connect to DB
+const dbURL = process.env.DB_URL || "mongodb://localhost27017/Icloset";
 
 export const connect = () =>{
-mongoose.connect('mongodb://localhost:27017/Icloset',{
+mongoose.connect(dbURL,{
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: false,

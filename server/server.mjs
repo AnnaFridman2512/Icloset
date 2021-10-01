@@ -33,7 +33,7 @@ app.use('/api/likedItems', likedItemsRouter);
 // app.use('/api/collection', collectionRouter)
 app.use('/api/addItems', addItemsRouter);
 app.use('/api/viewAll', viewAllRouter);
-app.use(express.static('../react-app/build'));
+app.use(express.static('../react-app/build'));//we run it from "final" folder
 
 
 const port = process.env.PORT || 8080; //listening to heroku port Or 8080 default
