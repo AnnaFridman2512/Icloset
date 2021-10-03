@@ -40,8 +40,8 @@ export default function MainComponent() {
     const thedress = getRandom(arrangeItems.else);
 
     const getDressComb = [thedress, theShoes]; //dress combination
-    const threeItemsComb = [theTop, theBottom, theShoes]; //ather combination
-    const randomProduct = getRandom(items).productType; //get a random item and make a condition if it is a dress or not
+    const threeItemsComb = [theTop, theBottom, theShoes].filter(item => item); //ather combination
+    const randomProduct = getRandom(items) ? getRandom(items).productType : null; //get a random item and make a condition if it is a dress or not
     if (randomProduct === "dress") {
       setCombination(getDressComb);
     } else {
@@ -60,7 +60,7 @@ export default function MainComponent() {
     // and produces an object whose "key" is the category (top,bottom,shoes,else)
     //and the value is an array of all the items from the same category.
   };
-  console.log("combin", context.combination);
+  console.log("combin", context.combination, combination);
 
   const addlikedItem = (combination) => {
     // console.log("combination", combination.map((c) => c._id));
@@ -100,7 +100,8 @@ export default function MainComponent() {
               <br /> button to see the outfit
             </div>
           )}
-          {items.length > 0 &&
+          {
+            // combination[0] ?
             combination.map(({ productType, _id, type, filePath }) => (
               <img
                 key={_id}
@@ -108,7 +109,9 @@ export default function MainComponent() {
                 src={`api/${filePath}`}
                 alt={productType}
               />
-            ))}
+            ))
+            //  : null
+          }
         </div>
         <div className="buttons">
           <button
