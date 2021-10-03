@@ -10,9 +10,9 @@
         "load-json-file": "^6.2.0",
         "mongoose": "^5.13.7",
         "multer": "^1.4.2",
-        "nodemon": "^2.0.12"
+        "nodemon": "^2.0.12",
+        "path": "^0.12.7"
     },
-    "devDependencies": {},
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon server.mjs",
