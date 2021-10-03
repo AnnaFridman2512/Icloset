@@ -19,6 +19,8 @@ export default function MainComponent() {
   const [findBtn, setFindBtn] = useState(false);
 
   const getRandom = (array) => {
+    console.log("array", array)
+    if (!array) return
     return array[Math.floor(Math.random() * array.length)]; //A general function that gets an array and knows how to random an item
   };
 
@@ -121,7 +123,7 @@ export default function MainComponent() {
               <MdFavorite size="1.5em" />
             )}
           </button>
-         
+
         </div>
       </div>
     </div>
