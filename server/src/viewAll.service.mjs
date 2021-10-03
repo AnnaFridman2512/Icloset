@@ -26,14 +26,17 @@ export function getItem(id) {
         .findOne({ _id: ObjectId(id) });
 }
  function deleteFile(file){
-    fs.unlink(`../${file.path}`, (err)=>{
+     console.log(file);
+     console.log("deleting " + file.filePath);
+    fs.unlink(`${file.filePath}`, (err)=>{
         if(err) console.log(err);
+        console.log("deleted successfully");
     })
 }
 
 
 export async function deleteItem(id) {
-    //const file = await getItem(id);
-    //deleteFile(file);
+    const file = await getItem(id);
+    deleteFile(file);
     return SingleFile.findOneAndDelete({ _id: ObjectId(id) });
 }
