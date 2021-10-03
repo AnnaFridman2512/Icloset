@@ -109,10 +109,13 @@ export default function AddItems() {
 
     if (type !== "" && productType !== "") {
 
-      fetch(`${process.env.PORT || 'http://localhost:8080'}/api/addItems`, {
-        method: "POST",
-        body: data,
-      })
+      fetch(
+        // `${process.env.PORT || 'http://localhost:8080'}/api/addItems`, 
+        '/api/addItems',
+        {
+          method: "POST",
+          body: data,
+        })
 
         .then(res => {
 
