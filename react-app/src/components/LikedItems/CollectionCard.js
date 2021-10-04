@@ -3,9 +3,9 @@ import React from "react";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import "./CollectionCard.css";
 
-function CollectionCard({ combination, _id , deleteCombination, currentIndex}) {
-  
-  
+function CollectionCard({ combination, _id, deleteCombination, currentIndex }) {
+
+
 
   return (
     <>
@@ -15,9 +15,9 @@ function CollectionCard({ combination, _id , deleteCombination, currentIndex}) {
             <img
               key={_id}
               className={`liked-${type}`}
-              src={'http://localhost:8080/api/'+filePath}
+              src={'api/' + filePath}
               alt={productType}
-            
+
             />
           ))}
         </div>
@@ -27,8 +27,8 @@ function CollectionCard({ combination, _id , deleteCombination, currentIndex}) {
       <DeleteOutlineOutlinedIcon
         className="delete_icon"
         onClick={() => deleteCombination(currentIndex._id)}
-        // onClick={(e) => deleteCombination(combination.indexOf(e.target.value)._id)}
-        
+      // onClick={(e) => deleteCombination(combination.indexOf(e.target.value)._id)}
+
       />
     </>
   );
