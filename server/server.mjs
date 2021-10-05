@@ -18,8 +18,6 @@ const app = express();
 
 app.use(express.json()); //Used to parse JSON bodies
 app.use(express.urlencoded()); //Parse URL-encoded bodies
-
-
 app.use(cors());
 
 app.use('/api/addedItems', express.static(path.join(__dirname, 'addedItems'))); //adding path to use at client side
@@ -33,8 +31,10 @@ app.use('/api/likedItems', likedItemsRouter);
 // app.use('/api/collection', collectionRouter)
 app.use('/api/addItems', addItemsRouter);
 app.use('/api/viewAll', viewAllRouter);
-app.use(express.static('../react-app/build'));//we run it from "final" folder
-
+app.use(express.static('../react-app/build')); //we run it from "final" folder
+// app.get('/*', function(req, res) {
+//     res.sendFile(path.join(__dirname, '../react-app/build', 'index.html'));
+// });
 
 const port = process.env.PORT || 8080; //listening to heroku port Or 8080 default
 
@@ -42,4 +42,4 @@ app.listen(port, () => {
     connect();
 });
 
-console.log("Server up and running on localhost: "  + port);
+console.log("Server up and running on localhost: " + port);
