@@ -132,7 +132,7 @@ div button.findMeButton.likeButton:hover {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 540px) {
     .main-component{
         transform: scale(70%)
     }
