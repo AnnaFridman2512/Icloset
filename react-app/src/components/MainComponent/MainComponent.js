@@ -102,7 +102,7 @@ export default function MainComponent() {
             </div>
           )}
           {
-            // combination[0] ?
+           items.length > 0 ?
             combination.map(({ productType, _id, type, filePath }) => (
               <img
                 key={_id}
@@ -111,7 +111,7 @@ export default function MainComponent() {
                 alt={productType}
               />
             ))
-            //  : null
+            : <div className="results"> The closet is empty </div>
           }
         </div>
         <div className="buttons">
