@@ -14,8 +14,7 @@ export default function Nav() {
     const [showLinks,setShowlinks] = useState(false); //when setShowLinks change to true, the menu Icon show 
 
     const toggle = () => {
-        setShowlinks(!showLinks);
-        
+        setShowlinks(!showLinks);  
     }
 
     return ( 
@@ -27,19 +26,19 @@ export default function Nav() {
         </div>
         <div className='right' id={showLinks ? 'hidden' : ""}> {/* (changing the id value) */}
 
-            <Link to='/addItems'>
+            <Link to='/addItems' onClick={toggle}>
             <ControlPointOutlinedIcon/>
                 Add Items
             </Link>
-            <Link to='/mainComponent'>
+            <Link to='/mainComponent' onClick={toggle}>
             <RiFindReplaceLine size= '1.5em'/>
                 Finde me 
             </Link>
-            <Link to='/likedItems'>
+            <Link to='/likedItems' onClick={toggle}>
                 <FavoriteBorderOutlinedIcon/>
                 Liked Items
             </Link>
-            <Link to='/view-all'>
+            <Link to='/view-all' onClick={toggle}>
                 <BiCloset size= '1.5em'/> 
                 View all
             </Link>
