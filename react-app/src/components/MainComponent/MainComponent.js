@@ -81,6 +81,8 @@ export default function MainComponent() {
 
   return (
     <div className="main">
+     
+      <div className="main-component">
       <button className="findMeButton" onClick={getrandomCombination}>
         <span>
           {findBtn ? (
@@ -92,7 +94,6 @@ export default function MainComponent() {
           )}
         </span>
       </button>
-      <div className="main-component">
         <div className="new-combinatin">
           {showResults ? null : (
             <div className="results">

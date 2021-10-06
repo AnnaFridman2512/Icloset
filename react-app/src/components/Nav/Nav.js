@@ -12,7 +12,12 @@ import { RiFindReplaceLine } from "react-icons/ri";
 
 export default function Nav() {
     const [showLinks,setShowlinks] = useState(false); //when setShowLinks change to true, the menu Icon show 
-   
+
+    const toggle = () => {
+        setShowlinks(!showLinks);
+        
+    }
+
     return ( 
     <>
     <nav className='navbar'>
@@ -45,7 +50,7 @@ export default function Nav() {
             
         </div>
 
-            <button className="menu-btn" onClick={() => setShowlinks(!showLinks)}>
+            <button className="menu-btn" onClick={toggle}>
                     < MenuOutlinedIcon fontSize="large"/>
             </button>
     </nav> 

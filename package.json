@@ -24,6 +24,7 @@
     },
     "homepage": "https://github.com/AnnaFridman2512/Icloset#readme",
     "dependencies": {
+        "chokidar": "^3.5.2",
         "concurrently": "^6.2.2"
     }
 }

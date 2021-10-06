@@ -27,6 +27,9 @@
 .liked-shoes {
   grid-column: 1 / 2; 
   grid-row: 2 / 3;
+  min-height: 170px;
+  max-height:170px;
+  overflow: hidden;
 }
 .liked-bottom {
   grid-column: 2 / 3; 
@@ -35,6 +38,9 @@
 .liked-top {
   grid-column: 1 / 2; 
   grid-row: 1 / 2;
+  min-height: 170px;
+  max-height: 170px;
+  overflow: hidden;
 }
 .liked-else {
   grid-column: 2 / 3; 

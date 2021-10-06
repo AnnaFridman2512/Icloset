@@ -28,7 +28,7 @@
     }
 }
 
-.getStartedBtn {
+.home .getStartedBtn {
     color: rgb(228, 181, 224);
     border: none;
     border-radius: 5px;
@@ -45,7 +45,7 @@
     line-height: normal;
 }
 
-.container {
+/* .container {
     margin-top: 100px; 
     width: 40%;
     height: 60vh;
@@ -58,7 +58,7 @@
     background-color: rgba(0, 0, 0, 0.5); 
     background: rgba(255, 255, 255, 0.836); 
     height: 500px; 
-}
+} */
 
 h1.header {
     color: black;
