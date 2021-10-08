@@ -19,7 +19,7 @@ function HomePage() {
       {/* <div className="container">
         <MainComponent />
       </div> */}
-      <Link to={ items.lengs > 0 ? '/addItems'  : '/mainComponent'} 
+      <Link to={ items.length > 0  ? '/mainComponent' :  '/addItems'} 
       className="getStartedBtn">Lets Get Started!</Link>
     </div>
   );
