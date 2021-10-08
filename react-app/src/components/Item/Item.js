@@ -20,7 +20,10 @@ const deleteFromCloset = _id =>{
                 'Content-Type': 'application/json'
             }
     })
-    .then(getItems());
+    .then(res =>{
+         if(res.status === 200)
+         getItems();
+    });
 }
 
     return(
