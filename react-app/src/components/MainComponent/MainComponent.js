@@ -81,28 +81,21 @@ export default function MainComponent() {
 
   return (
     <div className="main">
-     
+
       <div className="main-component">
-      <button className="findMeButton" onClick={getrandomCombination}>
-        <span>
-          {findBtn ? (
-            <div>
-              FIND ME SOMETHING ELSE <AutorenewIcon size="1.5em" />
-            </div>
-          ) : (
-            "FIND ME SOMETHING!"
-          )}
-        </span>
-      </button>
+        <button className="findMeButton" onClick={getrandomCombination}>
+          <span>
+            {findBtn ? (
+              <div>
+                FIND ME SOMETHING ELSE <AutorenewIcon size="1.5em" />
+              </div>
+            ) : (
+              "FIND ME SOMETHING!"
+            )}
+          </span>
+        </button>
         <div className="new-combinatin">
-          {showResults ? null : (
-            <div className="results">
-              <BiChevronsUp size="1.5em" /> Click on <br /> "FIND ME SOMETHING!"
-              <br /> button to see the outfit
-            </div>
-          )}
-          {
-           items.length > 0 ?
+          {showResults ? items.length > 0 ?
             combination.map(({ productType, _id, type, filePath }) => (
               <img
                 key={_id}
@@ -111,8 +104,13 @@ export default function MainComponent() {
                 alt={productType}
               />
             ))
-            : <div className="results"> The closet is empty </div>
-          }
+            : <div className="results"> The closet is empty </div> : (
+            <div className="results">
+              <BiChevronsUp size="1.5em" /> Click on <br /> "FIND ME SOMETHING!"
+              <br /> button to see the outfit
+            </div>
+          )}
+
         </div>
         <div className="buttons">
           <button
