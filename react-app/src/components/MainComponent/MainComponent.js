@@ -2,24 +2,21 @@ import "./MainComponent.css";
 import { useState, useContext } from "react";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 import { ViewAllContext } from "../viewAll/ViewAllContext";
+import {LikedItemsContext} from '../LikedItems/LikedItemsContext.js';
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { BiChevronsUp } from "react-icons/bi";
 
+
 export default function MainComponent() {
   //Find me navbar link
-
   const { items } = useContext(ViewAllContext);
-  console.log("all items", items);
 
-  const [combination, setCombination] = useState([]);
-  const context = useContext(ViewAllContext);
-
-  const [isLikedItem, setIsLikedItem] = useState(false);
+  const {combination, setCombination, addlikedItem, isLikedItem, setIsLikedItem } = useContext(LikedItemsContext);
   const [showResults, setShowResults] = useState(false);
   const [findBtn, setFindBtn] = useState(false);
 
   const getRandom = (array) => {
-    console.log("array", array)
+
     if (!array) return
     return array[Math.floor(Math.random() * array.length)]; //A general function that gets an array and knows how to random an item
   };
@@ -60,24 +57,9 @@ export default function MainComponent() {
     // and produces an object whose "key" is the category (top,bottom,shoes,else)
     //and the value is an array of all the items from the same category.
   };
-  console.log("combin", context.combination, combination);
+  //console.log("combin", combination, combination);
 
-  const addlikedItem = (combination) => {
-    // console.log("combination", combination.map((c) => c._id));
-    fetch("/api/likedItems", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(combination.map((c) => c._id)),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        context.setCombination([...context.combination, data]);
-      });
 
-    setIsLikedItem(true); //change the liked item button state to true (The heart icon is marked)
-  };
 
   return (
     <div className="main">
@@ -117,12 +99,14 @@ export default function MainComponent() {
             className="findMeButton likeButton"
             onClick={() => addlikedItem(combination)}
           >
-            {isLikedItem === false ? (
+            {isLikedItem === true ? (
+              <span>
+                <MdFavorite size="1.5em" />
+              </span>
+            ) : (
               <span>
                 <MdFavoriteBorder size="1.5em" />
               </span>
-            ) : (
-              <MdFavorite size="1.5em" />
             )}
           </button>
 

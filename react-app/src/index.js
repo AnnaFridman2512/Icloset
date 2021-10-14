@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App.js';
 import reportWebVitals from './reportWebVitals';
-import ViewAllProvider from './components/viewAll/ViewAllContext';
+import ViewAllProvider from './components/viewAll/ViewAllContext.js';
+import LikedItemsProvider from './components/LikedItems/LikedItemsContext.js';
 
 ReactDOM.render(
     <React.StrictMode>
+
     <ViewAllProvider>
+    <LikedItemsProvider>
         <App/>
+    </LikedItemsProvider>
     </ViewAllProvider>
 
 </React.StrictMode>, document.getElementById('root'));

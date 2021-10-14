@@ -10,14 +10,16 @@ import ViewAll from "../viewAll/ViewAll";
 //import Login from "../Login/Login.js";
 import Footer from "../HomePage/Footer";
 import { useEffect, useContext } from "react";
-import { ViewAllContext } from '../viewAll/ViewAllContext';
-import MainComponent from "../MainComponent/MainComponent";
+import { ViewAllContext } from '../viewAll/ViewAllContext.js';
+import {LikedItemsContext} from '../LikedItems/LikedItemsContext.js'
+import MainComponent from "../MainComponent/MainComponent.js";
 
 
 
 function App() {
 
-    const {items, getItems, combinationsList} = useContext(ViewAllContext);
+    const {getItems} = useContext(ViewAllContext);
+    const {combinationsList} = useContext(LikedItemsContext);
 
     useEffect(() => {
         getItems()
