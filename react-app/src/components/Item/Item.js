@@ -11,7 +11,7 @@ export default function Item( {
 
 }){
  const {getItems} = useContext(ViewAllContext); 
-const deleteFromCloset = _id =>{
+  const deleteFromCloset = _id =>{
 
      fetch(`/api/viewAll/${_id}`,{
             method: 'DELETE',

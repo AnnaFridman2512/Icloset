@@ -3,15 +3,17 @@ import React, {useCallback,useState} from 'react';
 
 
 export const LikedItemsContext = React.createContext({
-    combination: [],//Before fetching the array is empty 
+    combination: [],
     setCombination: () => [],
+    likedCombinationArr: [],
+    setLikedCombinationArr: () => [],
     combinationsList: () => [],
-    deleteCombination: () => [],
+    deleteLikedCombination: () => [],
     currentIndex:0,
     setCurrentIndex: () => [],
-    isLikedItem: false,
-    setIsLikedItem: () => [],
-    addlikedItem: () => [],
+    isLikedCombination: false,
+    setIsLikedCombination: () => [],
+    addlikedCombination: () => [],
     swipeLeft: () => [],
     swipeRight: () => []
 });
@@ -19,56 +21,56 @@ export const LikedItemsContext = React.createContext({
 
 export default function LikedItemsProvider({children}) {
 const [combination, setCombination] = useState([]);
+const [likedCombinationArr, setLikedCombinationArr] = useState([]);
 const [currentIndex, setCurrentIndex] = useState(0);
-const [isLikedItem, setIsLikedItem] = useState(false);
+const [isLikedCombination, setIsLikedCombination] = useState(false);
 
 
-  const combinationsList = useCallback(()=> { //fetch all liked items(combination) 
+  const combinationsList = useCallback(()=> { //fetch all liked combinations
     fetch('/api/likedItems')
-    .then(response =>response.json())//After fetching take the response (that came as a stirng) json() will convert the string in-to an array of objects.
-    .then(c => setCombination(c))//Takes the items array of objects, that we got above and replaces the empty 'items' array with the one we got from fetch()  
+    .then(response =>response.json())
+    .then(c => setLikedCombinationArr(c))
   }, []);
 
     // DELETE request
-    const deleteCombination = (_id) => {
+    const deleteLikedCombination = (_id) => {
       fetch(`/api/likedItems/${_id}`, {
         method: "DELETE",
         header: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }).then(setCombination(combination.filter((item) => item._id !== _id)));
+      }).then(setLikedCombinationArr(likedCombinationArr.filter((comb) => comb._id !== _id)));
       if (combination.length - 1 === currentIndex) {
         setCurrentIndex(currentIndex - 1);
       }
   
     };
 
-  const addlikedItem = (combination) => {
-    // console.log("combination", combination.map((c) => c._id));
+  const addlikedCombination = (combination) => {
     fetch("/api/likedItems", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(combination.map((c) => c._id)),
+      body: JSON.stringify(combination),
     })
       .then((res) => res.json())
-      .then((data) => {
-         setCombination([...combination, data]);
-      });
+      .then((data) => setLikedCombinationArr(data))
 
-    setIsLikedItem(true); //change the liked item button state to true (The heart icon is marked)
+      setLikedCombinationArr([likedCombinationArr , ...combination])
+      setIsLikedCombination(true); //change the liked item button state to true (The heart icon is marked)
+      combinationsList();
   };
 
     //swipe liked items carousel left
     const swipeLeft  = ()=>{
-      setCurrentIndex( currentIndex - 1 < 0 ? combination.length - 1 : currentIndex - 1);
+      setCurrentIndex( currentIndex - 1 < 0 ? likedCombinationArr.length - 1 : currentIndex - 1);
     }
 
     //swipe liked items carousel right
     const swipeRight = () => {
-      setCurrentIndex(currentIndex + 1 <= combination.length - 1? currentIndex + 1: 0);
+      setCurrentIndex(currentIndex + 1 <= likedCombinationArr.length - 1? currentIndex + 1: 0);
 }
 
     return (
@@ -76,13 +78,15 @@ const [isLikedItem, setIsLikedItem] = useState(false);
 
             combination,
             setCombination,
+            likedCombinationArr,
+            setLikedCombinationArr,
             combinationsList,
-            deleteCombination,
+            deleteLikedCombination,
             currentIndex,
             setCurrentIndex,
-            isLikedItem,
-            setIsLikedItem,
-            addlikedItem,
+            isLikedCombination,
+            setIsLikedCombination,
+            addlikedCombination,
             swipeLeft,
             swipeRight
 

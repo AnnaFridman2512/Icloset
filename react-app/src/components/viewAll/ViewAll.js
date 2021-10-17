@@ -18,8 +18,8 @@ export default function ViewAll(){
    <div className="view-all-container">
 
         {items.length > 0 //if 'items' array is not empty (after fetch filled the array)
-        ? items.map(item => <Item key={item.filePath} {...item} />)  //...product - pass all elements of iterableObj as arguments to function
-                                                               //key -> some value that is uniqe fo each product, in this case its the id                                                               //onAddToCart is the function that adds to cart on click
+        ? items.map(item => <Item key={item.filePath} {...item} />)  //...item - pass all elements of iterableObj as arguments to function
+                                                                    //key -> some value that is uniqe fo each item, in this case its the id                                                               //onAddToCart is the function that adds to cart on click
         :<div className="emptyCloset">
           <Link to='/addItems'>
          <button><span>Closet is empty, click to add items</span></button>

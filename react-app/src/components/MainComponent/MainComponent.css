@@ -120,12 +120,20 @@ div button.findMeButton.likeButton {
     height: 25%;
     width: 240px;
     height: 40px;
+    margin-bottom: -10px;
 }
-div button.findMeButton.likeButton:hover {
+div button.findMeButton:hover {
     width: 260px;
     height: 50px;
-    margin: 0;
+    margin-bottom:10px;
 }
+
+div button.likeButton:hover {
+    width: 260px;
+    height: 50px;
+    margin:-5px;
+}
+
 @media (max-width: 740px) {
     .main-component{
         transform: scale(90%)

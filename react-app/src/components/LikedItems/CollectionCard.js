@@ -7,28 +7,31 @@ import {LikedItemsContext} from '../LikedItems/LikedItemsContext.js';
 
 
 export default function CollectionCard() {
-    const {combination, deleteCombination, currentIndex} = useContext(LikedItemsContext);
-  
+
+    const {combination, deleteLikedCombination, currentIndex, likedCombinationArr, combinationsList} = useContext(LikedItemsContext);
+
+
   return (
     <>
       <div className="collection-card">
         <div className="Collection_Item">
+          
           {/*For each card that is at the current index, for each item show me the item*/}
-          {combination[currentIndex].combination.map(({ productType, filePath, type, _id }) => (
+           {likedCombinationArr[currentIndex].combination.map( item => (
             <img
-              key={_id}
-              className={`liked-${type}`}
-              src={'api/' + filePath}
-              alt={productType}
+              key={item._id}
+              className={`liked-${item.type}`}
+              src={'api/' + item.filePath}
+              alt={item.productType}
 
             />
-          ))}
+          ))} 
         </div>
 
       </div>
       <DeleteOutlineOutlinedIcon
         className="delete_icon"
-        onClick={() => deleteCombination(combination[currentIndex]._id)}
+        onClick={() => deleteLikedCombination(likedCombinationArr[currentIndex]._id)}
 
       />
     </>

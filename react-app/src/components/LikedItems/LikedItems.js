@@ -9,9 +9,9 @@ import { LikedItemsContext } from "../LikedItems/LikedItemsContext.js";
 
 export default function LikedItems() {
   
-  const { combination, swipeLeft, swipeRight} = useContext(LikedItemsContext);
+  const {likedCombinationArr, swipeLeft, swipeRight} = useContext(LikedItemsContext);
 
-  
+
 
 
   return (
@@ -23,7 +23,7 @@ export default function LikedItems() {
           </div>
 
           <div className="center">
-            {combination.length > 0 && (
+            {likedCombinationArr.length > 0 && (
               <CollectionCard />
             )}
 
