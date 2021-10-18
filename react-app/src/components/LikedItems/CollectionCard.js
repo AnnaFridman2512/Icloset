@@ -8,15 +8,16 @@ import {LikedItemsContext} from '../LikedItems/LikedItemsContext.js';
 
 export default function CollectionCard() {
 
-    const {combination, deleteLikedCombination, currentIndex, likedCombinationArr, combinationsList} = useContext(LikedItemsContext);
-
+    const {deleteLikedCombination, currentIndex, likedCombinationArr} = useContext(LikedItemsContext);
+    
+    console.log(likedCombinationArr);
 
   return (
     <>
       <div className="collection-card">
         <div className="Collection_Item">
           
-          {/*For each card that is at the current index, for each item show me the item*/}
+          {/*For each card object that is at the current index, for each liked combination, for each item in the combination-show me the item*/}
            {likedCombinationArr[currentIndex].combination.map( item => (
             <img
               key={item._id}

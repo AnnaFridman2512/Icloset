@@ -22,6 +22,7 @@ export const LikedItemsContext = React.createContext({
 export default function LikedItemsProvider({children}) {
 const [combination, setCombination] = useState([]);
 const [likedCombinationArr, setLikedCombinationArr] = useState([]);
+const [contains_Id, setContains_Id] = useState(false);
 const [currentIndex, setCurrentIndex] = useState(0);
 const [isLikedCombination, setIsLikedCombination] = useState(false);
 
@@ -81,6 +82,8 @@ const [isLikedCombination, setIsLikedCombination] = useState(false);
             likedCombinationArr,
             setLikedCombinationArr,
             combinationsList,
+            contains_Id,
+            setContains_Id,
             deleteLikedCombination,
             currentIndex,
             setCurrentIndex,
