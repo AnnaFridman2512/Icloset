@@ -70,7 +70,7 @@ export default function MainComponent() {
               <img
                 key={_id}
                 className={type}
-                src={`api/${filePath}`}
+                src={`${filePath}`}
                 alt={productType}
               />
             ))
