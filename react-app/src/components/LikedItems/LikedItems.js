@@ -9,8 +9,9 @@ import { LikedItemsContext } from "../LikedItems/LikedItemsContext.js";
 
 export default function LikedItems() {
   
-  const {likedCombinationArr, swipeLeft, swipeRight} = useContext(LikedItemsContext);
+  const {likedCombinationArr, swipeLeft, swipeRight, combinationsList} = useContext(LikedItemsContext);
 
+  combinationsList();
 
 
 

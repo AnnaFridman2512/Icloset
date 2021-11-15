@@ -15,13 +15,10 @@ export default function Item( {
  const {likedCombinationArr, combinationsList, deleteLikedCombination} = useContext(LikedItemsContext);
 
  const deleteFromCloset = _id =>{
-
-
 //Cheking if there is an item with the same _id in likedcombinations
   likedCombinationArr.map(combObj => {
     combObj.combination.map(item =>{
      if(item._id === _id){ //if there is such item 
-
         deleteLikedCombination(combObj._id)
      }
     })
