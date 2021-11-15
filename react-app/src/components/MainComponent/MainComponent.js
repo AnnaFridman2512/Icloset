@@ -2,7 +2,7 @@ import "./MainComponent.css";
 import { useState, useContext } from "react";
 import AutorenewIcon from "@material-ui/icons/Autorenew";
 import { ViewAllContext } from "../viewAll/ViewAllContext";
-import {LikedItemsContext} from '../LikedItems/LikedItemsContext.js';
+import { LikedItemsContext } from '../LikedItems/LikedItemsContext.js';
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { BiChevronsUp } from "react-icons/bi";
 
@@ -10,7 +10,7 @@ import { BiChevronsUp } from "react-icons/bi";
 export default function MainComponent() {
   //Find me navbar link
   const { items } = useContext(ViewAllContext);
-  const {combination, setCombination, addlikedCombination, isLikedCombination, setIsLikedCombination} = useContext(LikedItemsContext);
+  const { combination, setCombination, addlikedCombination, isLikedCombination, setIsLikedCombination } = useContext(LikedItemsContext);
 
   const [showResults, setShowResults] = useState(false);
   const [findBtn, setFindBtn] = useState(false);
@@ -66,17 +66,17 @@ export default function MainComponent() {
         </button>
         <div className="new-combinatin">
           {showResults ? combination.length > 0 ?
-            combination.map(({productType, _id, type, filePath }) => (
+            combination.map(({ productType, _id, type, filePath }) => (
               <img
                 key={_id}
                 className={type}
-                src={`api/${filePath}`}
+                src={`${filePath}`}
                 alt={productType}
               />
             ))
             : <div className="results"> Closet is empty </div> : (
-              <div className="results">
-                <BiChevronsUp size="1.5em" /> Click on <br /> "FIND ME SOMETHING!"<br /> button to see the outfit
+            <div className="results">
+              <BiChevronsUp size="1.5em" /> Click on <br /> "FIND ME SOMETHING!"<br /> button to see the outfit
             </div>
           )}
 
